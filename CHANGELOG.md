@@ -11,3 +11,8 @@ The following is a list of changes made to the FurDevs Bot.
 - Kill Command
 - Ping Command
 - Update Command
+- Debug Event ( Disabled Due to Console Spam )
+- Message Event w/ Invalid Command Error and Error Handling
+- Ready Event
+- Warn Evemt
+- Helper Functions
