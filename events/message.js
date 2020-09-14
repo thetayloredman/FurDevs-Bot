@@ -20,6 +20,23 @@ module.exports = async (client, message) => {
     if (message.content.match(prefixMention)) {
         return message.channel.send(`Heya ${message.author}! My Prefix is \`${prefix}\``);
     }
+    if(message.member && message.author && !message.author.bot) {
+        if (message.content.toLowerCase() == "hey alexa") {
+            const member = message.member;
+            const voiceChannel = member.voice.channel
+            if (!voiceChannel) {
+                return
+            }
+            const connection = await voiceChannel.join()
+            connection.on('speaking', (user, speaking) => {
+                if (speaking) {
+                    console.log(`I'm listening to ${user.username}`)
+                } else {
+                    console.log(`I stopped listening to ${user.username}`)
+                }
+            })
+        }
+    }
 
     // Is a command by a guild member who is not a bot? If so execute it
     if(message.content.startsWith(prefix)){

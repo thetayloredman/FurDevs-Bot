@@ -25,6 +25,7 @@ const init = async () => {
     });
 
     client.login(process.env.TOKEN);
+
 };
 
 init();
