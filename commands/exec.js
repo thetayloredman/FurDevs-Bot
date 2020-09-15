@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const Discord = require("discord.js");
 const { checkBotOwner } = require("./../utils/utils")
 const exec = require("child_process").exec;
 const hastebin = require("hastebin-gen");
