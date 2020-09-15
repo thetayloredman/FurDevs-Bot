@@ -2,7 +2,12 @@
 
 The following is a list of changes made to the FurDevs Bot.
 
-## 0.0.1-alpha.1
+## 0.0.2
+
+- Changed prefix to #bancodic because codic :3
+
+
+## 0.0.1
 
 ### Added
 - Changelog Command
