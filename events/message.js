@@ -10,7 +10,9 @@ module.exports = async (client, message) => {
         return;
     }
 
-    var { defaultPrefix } = require("./../settings.json")
+
+
+    var { defaultPrefix } = require("../settings.json")
     var prefix = defaultPrefix
     var command;
     var commandParts;
@@ -20,23 +22,6 @@ module.exports = async (client, message) => {
     if (message.content.match(prefixMention)) {
         return message.channel.send(`Heya ${message.author}! My Prefix is \`${prefix}\``);
     }
-    if(message.member && message.author && !message.author.bot) {
-        if (message.content.toLowerCase() == "hey alexa") {
-            const member = message.member;
-            const voiceChannel = member.voice.channel
-            if (!voiceChannel) {
-                return
-            }
-            const connection = await voiceChannel.join()
-            connection.on('speaking', (user, speaking) => {
-                if (speaking) {
-                    console.log(`I'm listening to ${user.username}`)
-                } else {
-                    console.log(`I stopped listening to ${user.username}`)
-                }
-            })
-        }
-    }
 
     // Is a command by a guild member who is not a bot? If so execute it
     if(message.content.startsWith(prefix)){
@@ -44,22 +29,43 @@ module.exports = async (client, message) => {
             commandParts = message.content.slice(prefix.length).trim().split(/ +/g);
             const command = commandParts.shift().toLowerCase();
             const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
+            if (Settings.disabledCommands.indexOf(command) !== -1) {
+                const disabledEmbed = new MessageEmbed()
+                  .setAuthor(
+                    `${message.author.tag}`,
+                    `${message.author.displayAvatarURL({ dynamic: true })}`
+                  )
+                  .setTitle(`❌ ${command} - Command Disabled.`)
+                  .setDescription(`That command has been disabled in this guild.`)
+                  .setColor(`#ee110f`)
+                  .setFooter(`User ID: ${message.author.id}`)
+                  .setThumbnail(
+                    `https://cdn.discordapp.com/emojis/604486986170105866.png?v=1`
+                  );
+                return message.channel
+                  .send(disabledEmbed)
+                  .then((a) => a.delete({ timeout: 15000 }));
+              }
             // If the Command cannot be Found
             if (!cmd) {
-                 const errorMessage = new MessageEmbed()
-                     .setAuthor(
-                         `${message.author.tag}`,
-                         `${message.author.displayAvatarURL({ dynamic: true })}`
-                     )
-                     .setTitle(`❌ ${command} - Invalid Command`)
-                     .setColor(`#ee110f`)
-                     .setFooter(`User ID: ${message.author.id}`)
-                     .setThumbnail(
-                         `https://cdn.discordapp.com/emojis/604486986170105866.png?v=1`
-                     );
-                 message.channel
-                     .send(errorMessage)
-                     .then((a) => a.delete({ timeout: 15000 }));
+                /*
+                    Deprecated since it's not considered a good practive for discord bots
+                */
+
+                // const errorMessage = new MessageEmbed()
+                //     .setAuthor(
+                //         `${message.author.tag}`,
+                //         `${message.author.displayAvatarURL({ dynamic: true })}`
+                //     )
+                //     .setTitle(`❌ ${command} - Invalid Command`)
+                //     .setColor(`#ee110f`)
+                //     .setFooter(`User ID: ${message.author.id}`)
+                //     .setThumbnail(
+                //         `https://cdn.discordapp.com/emojis/604486986170105866.png?v=1`
+                //     );
+                // message.channel
+                //     .send(errorMessage)
+                //     .then((a) => a.delete({ timeout: 15000 }));
                 return console.log(`Discord: Command Invalid: ${command} by ${message.author.tag}`)
             }else{
                 try{

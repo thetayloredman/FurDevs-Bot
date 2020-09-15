@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js")
-const GuildConfig = require("./../database/models/GuildConfig")
 const { defaultPrefix } = require("./../settings.json")
 const Discord = require("discord.js")
 Discord.DiscordMenu = require("../utils/DiscordMenu")
@@ -8,8 +6,7 @@ var _ = require('lodash');
 
 exports.run = async (client, message, args) => {
     message.delete()
-    var guildSettings = await GuildConfig.findOne({ guildID: message.guild.id })
-    var prefix = guildSettings.prefix || defaultPrefix;
+    var prefix = defaultPrefix
     if(args[0]){
         let command = args[0]
         const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
