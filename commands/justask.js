@@ -38,7 +38,7 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
     name: "justask",
-    description: "Kill the bot's process",
+    description: "CaN sOmEoNe HeLp Me WiTh My CoDe?????",
     usage: "justask",
     aliases: ["ask", "data"],
 };
