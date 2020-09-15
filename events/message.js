@@ -29,23 +29,6 @@ module.exports = async (client, message) => {
             commandParts = message.content.slice(prefix.length).trim().split(/ +/g);
             const command = commandParts.shift().toLowerCase();
             const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
-            if (Settings.disabledCommands.indexOf(command) !== -1) {
-                const disabledEmbed = new MessageEmbed()
-                  .setAuthor(
-                    `${message.author.tag}`,
-                    `${message.author.displayAvatarURL({ dynamic: true })}`
-                  )
-                  .setTitle(`❌ ${command} - Command Disabled.`)
-                  .setDescription(`That command has been disabled in this guild.`)
-                  .setColor(`#ee110f`)
-                  .setFooter(`User ID: ${message.author.id}`)
-                  .setThumbnail(
-                    `https://cdn.discordapp.com/emojis/604486986170105866.png?v=1`
-                  );
-                return message.channel
-                  .send(disabledEmbed)
-                  .then((a) => a.delete({ timeout: 15000 }));
-              }
             // If the Command cannot be Found
             if (!cmd) {
                 /*
