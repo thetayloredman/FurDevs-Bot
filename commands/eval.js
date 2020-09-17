@@ -44,9 +44,9 @@ exports.run = async (client, message, args) => {
                             let res = Promise.resolve(evaled)
                             embed.addField(`📖 Promise Output:`, `\`\`\`${require("util").inspect(res)}\`\`\``)
                         }
+                        return message.channel.send(embed);
         }
 
-    return message.channel.send(embed);
 
 };
 
