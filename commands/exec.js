@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { checkBotOwner } = require("./../utils/utils")
+const { checkBotOwner } = require("./../utils/permissions")
 const exec = require("child_process").exec;
 const hastebin = require("hastebin-gen");
 

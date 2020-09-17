@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { checkBotOwner } = require("./../utils/utils")
+const { checkBotOwner } = require("./../utils/permissions")
 const { execute } = require("./../utils/execute");
 
 exports.run = async (client, message) => {

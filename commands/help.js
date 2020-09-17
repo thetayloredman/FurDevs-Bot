@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
     }
     async function commandHelp (command){
         const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
-      var embed = new Discord.MessageEmbed()
+      var embed = new MessageEmbed()
         .setAuthor(
           `${message.author.tag}`,
           `${message.author.displayAvatarURL({ dynamic: true })}`
@@ -76,7 +76,7 @@ exports.run = async (client, message, args) => {
         message.channel,
         message.author.id,
         commands2.map((group) => {
-          var groupEmbed = new Discord.MessageEmbed()
+          var groupEmbed = new MessageEmbed()
             .setAuthor(
               `${message.author.tag}`,
               `${message.author.displayAvatarURL({ dynamic: true })}`

@@ -1,9 +1,20 @@
 const { Client, Collection, Structures } = require("discord.js");
 const { readdirSync } = require("fs")
 require("dotenv").config();
+
+
+Structures.extend("Guild", (Guild) => {
+    class CoolGuild extends Guild{
+        constructor(client, data){
+            super(client, data);
+            
+        }
+    }
+})
+
+
 const client = new Client({ disableMentions: "everyone" })
 const { load } = require("./utils/utils")
-
 client.commands = new Collection();
 client.aliases = new Collection();
 
