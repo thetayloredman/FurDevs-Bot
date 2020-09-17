@@ -11,9 +11,9 @@ module.exports = async (client, message) => {
     }
 
 
-
+    var GuildConfig = await message.guild.settings()
     var { defaultPrefix } = require("../settings.json")
-    var prefix = defaultPrefix
+    var prefix = defaultPrefix || GuildConfig.prefix
     var command;
     var commandParts;
 

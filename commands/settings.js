@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
     
         if(args[1] === "guild"){
         await checkBotOwner(message)
-        const GuildSettings = await message.channel.settings()
+        const GuildSettings = await message.guild.settings()
         const embed = new MessageEmbed()
         .setAuthor(
             `${message.author.tag}`,
