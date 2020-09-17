@@ -35,13 +35,13 @@ exports.run = async (client, message, args) => {
                         `\`\`\`js\n ${beautify(script, { format: "js" })} \`\`\``
                         )
                         .addField(":outbox_tray: Output", `\`\`\`${evaluated}\`\`\``)
-                        .addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
+                        .addField("❓ Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
                         .setFooter(`User ID: ${message.author.id}`)
                         .setThumbnail(client.user.displayAvatarURL({ dynamic: true }));
             
                         // Credits to Mozza 
                         if(evaluated["then"]){
-                            let res = Promise.resolve(evaled)
+                            let res = Promise.resolve(evaluated)
                             embed.addField(`📖 Promise Output:`, `\`\`\`${require("util").inspect(res)}\`\`\``)
                         }
                         return message.channel.send(embed);
