@@ -13,24 +13,39 @@ exports.run = async (client, message, args) => {
 
         // Evaluate the script
         const evaluated = eval(script);
+        if(typeof evaled !== "string"){
+            let evaled;
+            evaled = require("util").inspect(evaluated, { depth: 5 })
+            
+            if((evaled).includes(".env")) evaled = evaled.replace(".env", "Token goes brrrr")
+            if(evaled === undefined ) throw new Error("Evaluated Undefined Code :/")
+            
+            
+                    // Process the output
+                    const embed = new MessageEmbed()
+                        .setAuthor(
+                        `${message.author.tag}`,
+                        `${message.author.displayAvatarURL({ dynamic: true })}`
+                        )
+                        .setTitle(`Evaluate`)
+                        .setColor(`#8800FF`)
+                        .setTimestamp()
+                        .addField(
+                        ":inbox_tray: Input: ",
+                        `\`\`\`js\n ${beautify(script, { format: "js" })} \`\`\``
+                        )
+                        .addField(":outbox_tray: Output", `\`\`\`${evaluated}\`\`\``)
+                        .addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
+                        .setFooter(`User ID: ${message.author.id}`)
+                        .setThumbnail(client.user.displayAvatarURL({ dynamic: true }));
+            
+                        // Credits to Mozza 
+                        if(evaluated["then"]){
+                            let res = Promise.resolve(evaled)
+                            embed.addField(`📖 Promise Output:`, `\`\`\`${require("util").inspect(res)}\`\`\``)
+                        }
+        }
 
-        // Process the output
-        const embed = new MessageEmbed()
-            .setAuthor(
-            `${message.author.tag}`,
-            `${message.author.displayAvatarURL({ dynamic: true })}`
-            )
-            .setTitle(`Evaluate`)
-            .setColor(`#8800FF`)
-            .setTimestamp()
-            .addField(
-            ":inbox_tray: Input: ",
-            `\`\`\`js\n ${beautify(script, { format: "js" })} \`\`\``
-            )
-            .addField(":outbox_tray: Output", `\`\`\`${evaluated}\`\`\``)
-            .addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
-            .setFooter(`User ID: ${message.author.id}`)
-            .setThumbnail(client.user.displayAvatarURL({ dynamic: true }));
     return message.channel.send(embed);
 
 };

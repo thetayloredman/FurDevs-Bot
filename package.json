@@ -12,7 +12,8 @@
     "dotenv": "^8.2.0",
     "hastebin-gen": "^2.0.5",
     "lodash": "^4.17.20",
-    "mongoose": "^5.10.5"
+    "mongoose": "^5.10.5",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {},
   "scripts": {

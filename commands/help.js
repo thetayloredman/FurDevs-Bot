@@ -76,7 +76,7 @@ exports.run = async (client, message, args) => {
         message.channel,
         message.author.id,
         commands2.map((group) => {
-          var groupEmbed = new MessageEmbed()
+          var groupEmbed = new Discord.MessageEmbed()
             .setAuthor(
               `${message.author.tag}`,
               `${message.author.displayAvatarURL({ dynamic: true })}`
