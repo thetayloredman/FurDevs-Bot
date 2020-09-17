@@ -1,4 +1,4 @@
-const { Client, Collection } = require("discord.js");
+const { Client, Collection, Structures } = require("discord.js");
 const { readdirSync } = require("fs")
 require("dotenv").config();
 const client = new Client({ disableMentions: "everyone" })
