@@ -10,7 +10,7 @@
 
 <img src="https://i.imgur.com/fTRqnqA.png">
 
-### Step Three: Extract the zip"
+### Step Three: "Extract the zip"
 
 ### Step Four: Open up the terminal or command prompt ( for the windows dudes )"
 
@@ -36,8 +36,18 @@
 
 <img src="https://i.imgur.com/8pGJt3Y.png">
 
+### Step Four: Open up the terminal or command prompt ( for the windows dudes )"
 
-### More Information is WIP
+### Step Five: Change the directory by using `cd <directory>` and go to that extracted Zip file
+
+### Step Six: Do `npm install` to install the required dependencies 
+
+### Step Seven: Created a .env file and add and configure the following
+
+`TOKEN=TOKEN_GOES_HERE`
+
+### Step Eight: Open up the terminal and do `node index.js`
+
 
 
 
