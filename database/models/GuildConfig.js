@@ -31,10 +31,12 @@ const GuildConfig = new mongoose.Schema({
       default: null,
     },
 
-    verificationRole: {
+    verificationLogging: {
       type: mongoose.SchemaTypes.String,
       default: null,
     },
+
+
   
     /*
       FEATURES
@@ -44,11 +46,6 @@ const GuildConfig = new mongoose.Schema({
     type: mongoose.SchemaTypes.Boolean,
     default: false,
   },    
-  
-  verificationSystem: {
-    type: mongoose.SchemaTypes.Boolean,
-    default: false,
-  },
   
   reputationEmoji: {
     type: mongoose.SchemaTypes.String,
