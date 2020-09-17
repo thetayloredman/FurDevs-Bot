@@ -42,7 +42,8 @@ exports.run = async (client, message, args) => {
                         // Credits to Mozza 
                         if(evaluated["then"]){
                             let res = await Promise.resolve(evaluated)
-                            embed.addField(`📖 Promise Output:`, `\`\`\`${require("util").inspect(res)}\`\`\``)
+                            await Promise.resolve(ogeval)
+                            embed.addField('📖 Promise Output:', "js\n" + require("util").inspect(res) + '\n')
                         }
                         return message.channel.send(embed);
         }
