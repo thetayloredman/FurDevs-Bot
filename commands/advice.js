@@ -16,7 +16,7 @@ exports.run = async (client, message) => {
 
 exports.help = {
     name: "advice",
-    description: "Get the bot's Latency.",
+    description: "Get an advice from the bot.",
     usage: "",
     aliases: [],
 };
