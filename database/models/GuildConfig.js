@@ -25,20 +25,35 @@ const GuildConfig = new mongoose.Schema({
       type: mongoose.SchemaTypes.String,
       default: null,
     },
+
+    verificationRole: {
+      type: mongoose.SchemaTypes.String,
+      default: null,
+    },
+
+    verificationRole: {
+      type: mongoose.SchemaTypes.String,
+      default: null,
+    },
   
     /*
       FEATURES
     */
   
-      reputationSystem: {
-        type: mongoose.SchemaTypes.Boolean,
-        default: false,
-      },
+   reputationSystem: {
+    type: mongoose.SchemaTypes.Boolean,
+    default: false,
+  },    
   
-      reputationEmoji: {
-        type: mongoose.SchemaTypes.String,
-        default: null,
-      },
+  verificationSystem: {
+    type: mongoose.SchemaTypes.Boolean,
+    default: false,
+  },
+  
+  reputationEmoji: {
+    type: mongoose.SchemaTypes.String,
+    default: null,
+  },
   
 })
 
