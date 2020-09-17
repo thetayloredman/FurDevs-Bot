@@ -2,10 +2,26 @@
 
 The following is a list of changes made to the FurDevs Bot.
 
+## 0.0.3
+
+### Added
+
+- Database Models, Functions
+- Extend Discord Structures
+
+### Changed
+
+- Prefix to #
+
 ## 0.0.2
 
-- Changed prefix to #bancodic because codic :3
-- Added Resolvers, DiscordMenu, and Permission Utilities from DMod that were made by Sector Seven
+### Changed
+
+- Prefix to #bancodic because codic :3
+
+### Added
+
+- Resolvers, DiscordMenu, and Permission Utilities from DMod that were made by Sector Seven
 
 ## 0.0.1
 

@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
     }
     async function commandHelp (command){
         const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
-      var embed = new MessageEmbed()
+      var embed = new Discord.MessageEmbed()
         .setAuthor(
           `${message.author.tag}`,
           `${message.author.displayAvatarURL({ dynamic: true })}`
