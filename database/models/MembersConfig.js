@@ -5,7 +5,6 @@ const MembersConfig = new mongoose.Schema({
     guildID:{
         type: mongoose.SchemaTypes.String,
         required: true,
-        unique: true
     },
     userID:{
         type: mongoose.SchemaTypes.String,
