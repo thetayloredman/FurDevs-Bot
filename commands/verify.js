@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
     const guildSettings = await message.guild.settings()
     console.log(guildSettings)
     if(guildSettings.verificationRole){
-       message.guild.members.cache.get(vMember).roles.add(guildSettings.verificationRole)
+       message.guild.members.cache.get(vMember.id).roles.add(guildSettings.verificationRole)
     }else{
         throw new Error("The Verification Role does not exist! Please set it up.")
     }
