@@ -1,5 +1,6 @@
 const { checkPermission, checkBotPermission } = require("./../utils/permissions")
 const { usernameResolver } = require("./../utils/resolvers/username")
+const { roleResolver } = require("./../utils/resolvers/role")
 const { MessageEmbed } = require("discord.js")
 
 exports.run = async (client, message, args) => {
@@ -11,9 +12,11 @@ exports.run = async (client, message, args) => {
     await checkPermission(message, "MANAGE_ROLES")
     await checkBotPermission(message, "MANAGE_ROLES")
     const guildSettings = await message.guild.settings()
-    console.log(guildSettings)
+    console.log(client.users.resolve(vMember))
     if(guildSettings.verificationRole){
-       message.guild.members.cache.get(vMember.id).roles.add(guildSettings.verificationRole)
+        const role = await message.guild.roles.cache.get(guildSettings.verificationRole)
+        console.log(role)
+      vMember.roles.add(role, [`Verification - ${message.author.username} `])
     }else{
         throw new Error("The Verification Role does not exist! Please set it up.")
     }

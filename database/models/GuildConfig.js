@@ -13,7 +13,7 @@ const GuildConfig = new mongoose.Schema({
     prefix:{
         type: mongoose.SchemaTypes.String,
         required: true, 
-        default:"J>"
+        default:">"
     },
 
     disabledCommands: {
