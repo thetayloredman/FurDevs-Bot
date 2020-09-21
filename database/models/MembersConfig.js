@@ -9,7 +9,6 @@ const MembersConfig = new mongoose.Schema({
     userID:{
         type: mongoose.SchemaTypes.String,
         required: true,
-        unique: true
     },
     roles: {
         type: mongoose.SchemaTypes.Array,
