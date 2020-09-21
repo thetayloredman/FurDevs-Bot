@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-
 const ClientsConfig = new mongoose.Schema({
 
     id: {

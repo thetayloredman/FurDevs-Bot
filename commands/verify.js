@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
     const guildSettings = await message.guild.settings()
     console.log(client.users.resolve(vMember))
     if(guildSettings.verificationRole){
-        const role = await message.guild.roles.cache.get(guildSettings.verificationRole)
+        const role = await message.guild.roles.resolve(guildSettings.verificationRole)
         console.log(role)
       vMember.roles.add(role, [`Verification - ${message.author.username} `])
     }else{

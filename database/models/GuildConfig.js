@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-
 const GuildConfig = new mongoose.Schema({
 
   /*

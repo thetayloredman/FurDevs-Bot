@@ -25,7 +25,7 @@ exports.run = async (client, message, args) => {
         .addField(`Prefix:`, `${GuildSettings.prefix}`)
         .addField(`Disabled Commands:`, `\`\`\`${GuildSettings.disabledCommands ? GuildSettings.disabledCommands.forEach(cmd => cmd.name) : "None Set"}\`\`\``)
         .addField(`Banker Role (Coming Soon):`, `${GuildSettings.bankerRole ? GuildSettings.bankerRole : "None Set"}`)
-        .addField(`Verification Role:`, `${GuildSettings.verificationRole ? "<@&" + GuildSettings.verificationRole + ">" : "None Set" }`)
+        .addField(`Verification Role:`, `${GuildSettings.verificationRole ? message.guild.role.resolve(GuildSettings.verificationRole) : "None Set" }`)
         .addField(`Verification Logging:`, `${GuildSettings.verificationLogging ? GuildSettings.verificationLogging : "None Set"  }`)
         .addField(`Reputation System:`, `${GuildSettings.reputationSystem ? GuildSettings.reputationSystem : "Disabled"}`)
         .addField(`Reputation Emoji:`, `${GuildSettings.reputationEmoji ? GuildSettings.reputationEmoji : "None Set"}`)
