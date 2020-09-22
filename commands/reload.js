@@ -9,11 +9,12 @@ exports.run = async (client, message) => {
     await checkBotOwner(message)
     const cmdFiles = await readdirSync("./commands/");
     console.log(`Loading a total of ${cmdFiles.length} commands.`);
-    cmdFiles.forEach(cmd => {
+    await cmdFiles.forEach(cmd => {
         if (!cmd.endsWith(".js")) return;
         const response = reload(client, cmd);
         if (response) console.log(response);
     });
+    message.channel.reply("The Bot Is reloaded :+1:")
 };
 
 exports.help = {
