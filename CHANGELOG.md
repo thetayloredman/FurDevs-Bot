@@ -8,10 +8,13 @@ The following is a list of changes made to the FurDevs Bot.
 
 - Database Models, Functions
 - Extend Discord Structures
+- Say Command ( Bot owners only )
+- Choose Command
+- Contribution Command 
 
 ### Changed
 
-- Prefix to #
+- Prefix to >
 
 ## 0.0.2
 
