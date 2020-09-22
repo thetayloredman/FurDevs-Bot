@@ -24,10 +24,11 @@ function reload(client, command){
         if (props.init) {
             props.init(client);
         }
-        client.commands.remove(props.help.name, props);
+        client.commands.delete(props.help.name, props);
         client.commands.set(props.help.name, props);
+        console.log(`Reloaded ${props.help.name}`)
         props.help.aliases.forEach(alias => {
-          client.aliases.remove(alias, props.help.name);
+          client.aliases.delete(alias, props.help.name);
             client.aliases.set(alias, props.help.name);
         });
         return false;
