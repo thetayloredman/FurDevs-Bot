@@ -1,12 +1,12 @@
 const { MessageEmbed } = require("discord.js")
 const { usernameResolver } = require("./../utils/resolvers/username")
+var imposterDetector = [true, false]
 
 exports.run = async (client, message, args) => {
     await message.delete();
-    if(args){
+    if(args[0]){
         const username = args[0]
         var blames = await usernameResolver(message, username)
-        var imposterDetector = [true, false]
     }else{
         throw new Error("Give me some choices man ( Like Should I die **or** stay alive ) Make sure you put \" or \" between you choices")
     }
