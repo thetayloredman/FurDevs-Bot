@@ -1,9 +1,11 @@
 const { MessageEmbed } = require("discord.js")
-const fetch = require("node-fetch")
+const { usernameResolver } = require("./../utils/resolvers/username")
 
 exports.run = async (client, message, args) => {
     await message.delete();
     if(args){
+        const username = args[0]
+        var blames = await usernameResolver(message, username)
         var imposterDetector = [true, false]
     }else{
         throw new Error("Give me some choices man ( Like Should I die **or** stay alive ) Make sure you put \" or \" between you choices")
@@ -21,7 +23,7 @@ exports.run = async (client, message, args) => {
                 .      　。　　　　•　    　ﾟ　　。
         　　.　　　.　　　  　　.　　　　　。　　   。　.
          　.　　      。　        ඞ   。　    .    •
-         .      ${message.author} was ${imposter ? " " : "Not"} The Imposter　 。　.
+         .      ${blames ? blames : message.author} was ${imposter ? " " : "Not"} The Imposter　 。　.
         　 　　。　　　　　　ﾟ　　　.　　　　　.
         ,　　　　.　 .　　       .
         `)
