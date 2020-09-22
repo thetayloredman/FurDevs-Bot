@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 const { checkBotOwner } = require("./../utils/permissions")
+const GuildConfig = require("./../database/models/GuildConfig")
 
 exports.run = async (client, message, args) => {
     // Delete the original command message
