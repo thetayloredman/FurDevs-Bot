@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
         .setTitle("Choose Command")
         .setColor("#8800FF")
         .setFooter(`User ID: ${message.author.id}`)
-        .setDescription(`I've chosen "${choices[Math.floor(Math.random(choices.length))]}" out of the ${choices.length} choices that you have given me `)
+        .setDescription(`I've chosen "${choices[Math.floor(Math.random() *choices.length)]}" out of the ${choices.length} choices that you have given me `)
         .setTimestamp();
         message.channel.send(embed)
     }else{

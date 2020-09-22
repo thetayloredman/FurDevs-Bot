@@ -11,6 +11,8 @@ The following is a list of changes made to the FurDevs Bot.
 - Say Command ( Bot owners only )
 - Choose Command
 - Contribution Command 
+- Coinflip Command
+- Imposter Command
 
 ### Changed
 
