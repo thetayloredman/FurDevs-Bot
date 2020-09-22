@@ -7,8 +7,6 @@ exports.run = async (client, message, args) => {
     if(args[0]){
         const username = args[0]
         var blames = await usernameResolver(message, username)
-    }else{
-        throw new Error("Give me some choices man ( Like Should I die **or** stay alive ) Make sure you put \" or \" between you choices")
     }
     const imposter = Math.floor(Math.random() * imposterDetector.length)
         const embed = new MessageEmbed()
