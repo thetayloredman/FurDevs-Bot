@@ -1,6 +1,8 @@
 const { MessageEmbed } = require("discord.js")
 const { checkBotOwner } = require("./../utils/permissions")
 const { reload } = require("./../utils/utils")
+const { readdirSync } = require("fs")
+
 
 exports.run = async (client, message) => {
     await message.delete();
