@@ -14,7 +14,7 @@ exports.run = async (client, message) => {
         const response = reload(client, cmd);
         if (response) console.log(response);
     });
-    message.channel.reply("The Bot Is reloaded :+1:")
+    message.reply("The Bot Is reloaded :+1:")
 };
 
 exports.help = {
