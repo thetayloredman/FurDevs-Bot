@@ -14,7 +14,9 @@ The following is a list of changes made to the FurDevs Bot.
 
 ### Changed
 
-- Prefix to >
+- Default Prefix to >
+- Changed Bot Owners to an Array in settings.json
+- Changed the checkBotOwner Function to check if the author's message id is included in the array
 
 ## 0.0.2
 
