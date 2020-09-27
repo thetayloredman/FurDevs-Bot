@@ -4,7 +4,7 @@ const fetch = require("node-fetch")
 
 exports.run = async (client, message, args) => {
     await message.delete();
-    if(message.author.id !== "216037365829992448"){
+    if(!message.member.roles.cache.get("759870953488121878")){
         throw new Error("Hey! you're not the server mom")
     }
     if(args[0]){
