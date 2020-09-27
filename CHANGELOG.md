@@ -13,6 +13,7 @@ The following is a list of changes made to the FurDevs Bot.
 - Contribution Command 
 - Coinflip Command
 - Imposter Command
+- Belt Command
 
 ### Changed
 
