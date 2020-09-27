@@ -115,6 +115,12 @@ mongoose.connect(process.env.DB, {
 
 
 const init = async () => {
+    console.log(' ___            __                ')
+    console.log(' /             |/  |              ')
+    console.log('(___       ___ |   | ___       ___')
+    console.log('|    |   )|   )|   )|___) \  )|___')
+    console.log('|    |__/ |    |__/ |__    \/  __/')
+    console.log('==================================')
     const cmdFiles = await readdirSync("./commands/");
     console.log(`Loading a total of ${cmdFiles.length} commands.`);
     cmdFiles.forEach(cmd => {
