@@ -121,15 +121,18 @@ const init = async () => {
     console.log('|    |   )|   )|   )|___) \  )|___')
     console.log('|    |__/ |    |__/ |__    \/  __/')
     console.log('==================================')
+    const cmds = []
     readdirSync("./commands/").forEach(dir => {
        var cmdFiles = readdirSync(`./commands/${dir}/`)
         console.log(`Loading ${dir} Module Which Contains ${cmdFiles.length} commands.`);
         cmdFiles.forEach(cmd => {
             if (!cmd.endsWith(".js")) return;
             const response = load(client, dir, cmd);
+            cmds.push(cmd)
             if (response) console.log(response);
         });
     })
+    console.log(`Loaded a total ${cmds.length} Commands!`)
 
     const evtFiles = await readdirSync("./events/");
     console.log(`Loading a total of ${evtFiles.length} events.`);
