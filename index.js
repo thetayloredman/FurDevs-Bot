@@ -123,7 +123,7 @@ const init = async () => {
     console.log('==================================')
     readdirSync("./commands/").forEach(dir => {
        var cmdFiles = readdirSync(`./commands/${dir}/`)
-        console.log(`Loading ${dir} containing ${cmdFiles.length} commands.`);
+        console.log(`Loading ${dir} Module Which Contains ${cmdFiles.length} commands.`);
         cmdFiles.forEach(cmd => {
             if (!cmd.endsWith(".js")) return;
             const response = load(client, dir, cmd);
