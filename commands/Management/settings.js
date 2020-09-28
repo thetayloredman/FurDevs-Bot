@@ -1,8 +1,8 @@
-const { checkBotOwner } = require("./../utils/permissions")
+const { checkBotOwner } = require("../../utils/permissions")
 const { MessageEmbed } = require("discord.js")
-const settings = require("./../settings.json")
+const settings = require("../../settings.json")
 const Discord = require("discord.js")
-Discord.DiscordMenu = require("../utils/DiscordMenu")
+Discord.DiscordMenu = require("../../utils/DiscordMenu")
 var _ = require('lodash');
 
 

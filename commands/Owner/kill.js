@@ -1,4 +1,4 @@
-const { checkBotOwner } = require("./../utils/permissions")
+const { checkBotOwner } = require("./../../utils/permissions")
 
 exports.run = async (client, message, args) => {
     await message.delete()

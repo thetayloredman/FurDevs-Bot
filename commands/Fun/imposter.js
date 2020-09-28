@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-const { usernameResolver } = require("./../utils/resolvers/username")
+const { usernameResolver } = require("./../../utils/resolvers/username")
 var imposterDetector = [true, false]
 
 exports.run = async (client, message, args) => {

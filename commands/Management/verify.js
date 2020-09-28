@@ -1,6 +1,6 @@
-const { checkPermission, checkBotPermission } = require("./../utils/permissions")
-const { usernameResolver } = require("./../utils/resolvers/username")
-const { roleResolver } = require("./../utils/resolvers/role")
+const { checkPermission, checkBotPermission } = require("../../utils/permissions")
+const { usernameResolver } = require("../../utils/resolvers/username")
+const { roleResolver } = require("../../utils/resolvers/role")
 const { MessageEmbed } = require("discord.js")
 
 exports.run = async (client, message, args) => {
@@ -25,6 +25,6 @@ exports.run = async (client, message, args) => {
 exports.help = {
     name: "verify",
     description: "Verify an Specific Member",
-    usage: "< User ID >",
+    usage: "< Username >",
     aliases: [],
 };

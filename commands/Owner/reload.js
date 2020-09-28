@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js")
-const { checkBotOwner } = require("./../utils/permissions")
-const { reload } = require("./../utils/utils")
+const { checkBotOwner } = require("../../utils/permissions")
+const { reload } = require("../../utils/utils")
 const { readdirSync } = require("fs")
 
 

@@ -1,6 +1,6 @@
-const { defaultPrefix } = require("./../settings.json")
+const { defaultPrefix } = require("./../../settings.json")
 const Discord = require("discord.js")
-Discord.DiscordMenu = require("../utils/DiscordMenu")
+Discord.DiscordMenu = require("../../utils/DiscordMenu")
 var _ = require('lodash');
 
 

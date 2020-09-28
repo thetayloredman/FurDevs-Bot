@@ -2,9 +2,9 @@ const exec = require("child_process").exec;
 const random = require("crypto-random-string");
 
 
-function load(client, command){
+function load(client, dir, command){
     try {
-        const props = require(`../commands/${command}`);
+        const props = require(`../commands/${dir}/${command}`);
         if (props.init) {
             props.init(client);
         }
