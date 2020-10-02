@@ -2,7 +2,7 @@
 
 The following is a list of changes made to the FurDevs Bot.
 
-## 0.0.3
+## 0.1.0-alpha-4
 
 ### Added
 
