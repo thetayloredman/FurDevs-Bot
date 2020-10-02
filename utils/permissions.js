@@ -13,7 +13,7 @@ function checkBotPermission(message, permission) {
 }
 
 function checkBotOwner(message) {
-    if (!botOwner.includes === message.author.id) {
+    if (!botOwner.includes(message.author.id)) {
         throw new Error(`This command may only be used by the bot owner`);
     }
 }
