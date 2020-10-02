@@ -10,9 +10,9 @@ exports.run = async (client, message) => {
             `${message.author.tag}`,
             `${message.author.displayAvatarURL({ dynamic: true })}`
         )
-        .setTitle(`Update - Updating bot...`)
+        .setTitle(`<a:uodating:761724854742417438> Update - Updating bot...`)
         .setColor(`BLUE`)
-        .setDescription(`This may take a bit...`)
+        .setDescription(`<a:windows_loading:732716714273406976> This may take a bit...`)
         .setTimestamp()
         .setFooter(`User ID: ${message.author.id}`);
     var message = await message.channel.send(embed);
