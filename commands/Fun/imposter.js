@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
                 .      　。　　　　•　    　ﾟ　　。
         　　.　　　.　　　  　　.　　　　　。　　   。　.
          　.　　      。　        ඞ   。　    .    •
-         .      ${blames ? blames : message.author} was ${imposter ? " " : "Not"} The Imposter　 。　.
+         .      ${blames ? blames : message.author} was ${imposter ? "" : "Not"} The Imposter　 。　.
         　 　　。　　　　　　ﾟ　　　.　　　　　.
         ,　　　　.　 .　　       .
         `)
