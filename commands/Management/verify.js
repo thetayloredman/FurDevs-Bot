@@ -1,12 +1,12 @@
 const { checkPermission, checkBotPermission } = require("../../utils/permissions")
-const { usernameResolver } = require("../../utils/resolvers/username")
+const { memberResolver } = require("../../utils/resolvers/member")
 const { MessageEmbed } = require("discord.js")
 const { addRole  } = require("./../../utils/guild")
 exports.run = async (client, message, args) => {
     await message.delete()
-    const vMember = usernameResolver(message, args[0])
+    const vMember = memberResolver(message, args[0])
     if(!args[0]){
-        throw new Error("Please provide an Username, Mention or User's ID of the User you would like to verify")
+        throw new Error("Please provide an Mention or User's ID of the User you would like to verify")
     }else if(!args){
         throw new Error("Please provide an image link of the person's verification answers ( Temporary for Version 0.4 as, we'll developing a verification system to do this")
     }
@@ -15,10 +15,8 @@ exports.run = async (client, message, args) => {
     const guildSettings = await message.guild.settings()
 
     if(guildSettings.verificationRole){
-        const role = await message.guild.roles.resolve(guildSettings.verificationRole)
-        await addRole(message, vMember, verificationRole, `Verification Command\nResponsible: ${message.author.tag}`).catch(err => {
-            console.log(err)
-        })
+        await vMember.roles.add(guildSettings.verificationRole, reason);
+        return true;
     }else{
         throw new Error("The Verification Role does not exist! Please set it up.")
     }

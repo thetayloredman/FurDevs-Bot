@@ -32,12 +32,13 @@ async function removeRole(member, role, reason){
 
 async function addRole(message, member, role, reason){
     var guildSettings = await message.guild.settings();
+    member = message.guild.members.cache.get(member)
 
     // Setting not set? Exit.
     if (!guildSettings[role]) return false;
 
     // Setting set, but role does not exist? Return false.
-    if (!member.guild.roles.cache.has(guildSettings[role]))
+    if (!message.guild.roles.cache.has(guildSettings[role]))
       return false;
 
     // If the member has the role, return false.
