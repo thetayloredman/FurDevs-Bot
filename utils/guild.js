@@ -1,4 +1,4 @@
-var GuildConfig = require("../../Dragos-Moderations/database/models/GuildConfig.js")
+var GuildConfig = require("./../database/models/GuildConfig.js")
 
 async function send(type, guild, content, options){
     var GuildSettings = await GuildConfig.findOne({ guildID: guild.id })

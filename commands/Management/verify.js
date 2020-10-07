@@ -1,7 +1,5 @@
 const { checkPermission, checkBotPermission } = require("../../utils/permissions")
 const { usernameResolver } = require("../../utils/resolvers/username")
-const { MessageEmbed } = require("discord.js")
-const { addRole  } = require("./../../utils/guild")
 exports.run = async (client, message, args) => {
     await message.delete()
 
