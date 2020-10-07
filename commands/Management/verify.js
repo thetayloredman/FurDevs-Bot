@@ -1,10 +1,11 @@
 const { checkPermission, checkBotPermission } = require("../../utils/permissions")
-const { memberResolver } = require("../../utils/resolvers/member")
+const { usernameResolver } = require("../../utils/resolvers/username")
 const { MessageEmbed } = require("discord.js")
 const { addRole  } = require("./../../utils/guild")
 exports.run = async (client, message, args) => {
+    var vMember = await usernameResolver(message, args[0]);
     await message.delete()
-    const vMember = memberResolver(message, args[0])
+
     if(!args[0]){
         throw new Error("Please provide an Mention or User's ID of the User you would like to verify")
     }else if(!args){
@@ -15,7 +16,8 @@ exports.run = async (client, message, args) => {
     const guildSettings = await message.guild.settings()
 
     if(guildSettings.verificationRole){
-        await vMember.roles.add(guildSettings.verificationRole, reason);
+        let member = message.guild.members.cache.get(vMember.id)
+        await member.roles.add(guildSettings.verificationRole, `Verificaton Command - Responsible: ${message.author.tag}`);
         return true;
     }else{
         throw new Error("The Verification Role does not exist! Please set it up.")
