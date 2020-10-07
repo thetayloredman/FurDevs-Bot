@@ -2,6 +2,16 @@
 
 The following is a list of changes made to the FurDevs Bot.
 
+### 0.1.0-alpha-5
+
+## Added
+- Verification Command
+- SetVerificationRole Command
+
+## Fixed
+
+- Guild Utilities, it was importing the guild config the wrong way
+
 ## 0.1.0-alpha-4
 
 ### Added
@@ -14,6 +24,7 @@ The following is a list of changes made to the FurDevs Bot.
 - Coinflip Command
 - Imposter Command
 - Belt Command
+
 
 ### Changed
 
