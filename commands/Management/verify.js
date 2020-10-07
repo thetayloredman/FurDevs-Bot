@@ -27,5 +27,5 @@ exports.help = {
     name: "verify",
     description: "Verify an Specific Member",
     usage: "< Username >",
-    aliases: [],
+    aliases: ["verify"],
 };
