@@ -7,9 +7,9 @@ exports.run = async (client, message, args) => {
     // Delete the original command message
     message.delete();
     await checkBotOwner(message);
-    var GuildSettings = await message.guild.settings()
 
     if(args[0]) {
+        var GuildSettings = await message.guild.settings()
         var role = await roleResolver(message, args[0])
         console.log(role.id)
         // This command may only be used by the bot owner
@@ -27,15 +27,14 @@ exports.run = async (client, message, args) => {
                 `${message.author.displayAvatarURL({dynamic: true})}`
             )
             .setTitle(`Verification - The Role is Updated!`)
-            .setDescription(`The Current Verified Role set for this Verification is \n<@&${GuildSettings.verificationRole}>`)
+            .setDescription(`The role is now ${role}`)
             .setTimestamp()
             .setFooter(`User ID: ${message.author.id}`)
             .setColor(`#8800FF`);
         return message.channel.send(embed);
     }
         if (!role) {
-            var id = await GuildSettings.verificationRole
-            console.log(id)
+            var GuildSettings = await message.guild.settings()
             const embed = new Discord.MessageEmbed()
                 .setAuthor(
                     `${message.author.tag}`,

@@ -60,6 +60,8 @@ exports.run = async (client, message, args) => {
         }
       }
       // Now, break the commands up into groups of 10 for pagination.
+        commands.sort()
+    commandsMain.sort()
       while (commands.length > 0) {
         _commands.push(commands.shift());
         if (_commands.length > 4) {
