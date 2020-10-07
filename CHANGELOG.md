@@ -2,13 +2,14 @@
 
 The following is a list of changes made to the FurDevs Bot.
 
-### 0.1.0-alpha-5
+## 0.1.0-alpha-5
 
-## Added
+### Added
+
 - Verification Command
 - SetVerificationRole Command
 
-## Fixed
+### Fixed
 
 - Guild Utilities, it was importing the guild config the wrong way
 
