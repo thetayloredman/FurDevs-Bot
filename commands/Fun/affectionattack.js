@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
         .setTitle("AFFECTION ATTACK!")
         .setColor("#ff00ce")
         .setFooter(`User ID: ${message.author.id}`)
-        .setDescription(`${affected} gets attacted with affection by ${message.author}! Aww That's Cute >w<`)
+        .setDescription(`${affected} gets attacked with affection by ${message.author}! Aww That's Cute >w<`)
         .setTimestamp();
         message.channel.send(embed)
 };
