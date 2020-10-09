@@ -13,16 +13,17 @@ module.exports = async (client, message) => {
 
     var GuildConfig = await message.guild.settings()
     var { defaultPrefix } = require("../settings.json")
-    var prefix = GuildConfig.prefix || defaultPrefix;
     var command;
     var commandParts;
-
+    
     // If the user pings the bot the bot will respond with it's prefix
-    const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-    if (message.content.match(prefixMention)) {
-        return message.channel.send(`Heya ${message.author}! My Prefix is \`${prefix}\``);
+    const mentionRegex = RegExp(`^<@!${client.user.id}>$`);
+    const mentionRegexPrefix = RegExp(`^<@!${client.user.id}> `);
+    if (message.content.match(mentionRegex)) {
+        return message.channel.send(`Heya ${message.author}! My Prefix is \`${GuildConfig.prefix}\``);
     }
-
+    
+    var prefix =  message.content.match(mentionRegexPrefix) ? message.content.match(mentionRegexPrefix)[0] : GuildConfig.prefix;
     // Is a command by a guild member who is not a bot? If so execute it
     if(message.content.startsWith(prefix)){
         if(message.member && message.author && !message.author.bot){

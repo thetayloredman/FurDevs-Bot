@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-Discord.DiscordMenu = require("./utils/DiscordMenu")
+Discord.DiscordMenu = require("./../DiscordMenu")
 
 
 async function roleNameResolver(message, roleName) {
