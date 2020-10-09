@@ -22,6 +22,7 @@ const MembersConfig = new mongoose.Schema({
   
       XP: {
         type: mongoose.SchemaTypes.Number,
+        default: 0
       },
   
       coins: {
