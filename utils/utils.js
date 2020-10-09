@@ -56,6 +56,10 @@ function uid(){
     return `${inital}${random({ length: 16 - intial.length })}`
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 
 
 
@@ -65,3 +69,4 @@ exports.execute = execute;
 exports.uid = uid
 exports.load = load
 exports.reload = reload
+exports.sleep = sleep
