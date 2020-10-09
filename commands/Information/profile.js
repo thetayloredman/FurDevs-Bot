@@ -1,5 +1,13 @@
 const { MessageEmbed } = require("discord.js")
 
+// Joined the Server
+// Badges
+// Reputation
+// Level
+// XP
+// Membership Type ( Regular, Member, Staff )
+
+
 
 exports.run = async (client, message) => {
     await message.delete();
