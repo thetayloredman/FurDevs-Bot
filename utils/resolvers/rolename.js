@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 Discord.DiscordMenu = require("./../DiscordMenu")
+const roleRegex = /^(?:<@&)?(\d{17,19})>?$/
 
 
 async function roleNameResolver(message, roleName) {
@@ -96,10 +97,10 @@ function resolveRole(query, guild) {
     return guild.roles.has(query.id) ? query : null;
   if (
     typeof query === "string" &&
-    sails.config.custom.discord.regex.role.test(query)
+    roleRegex.test(query)
   )
     return guild.roles.resolve(
-      sails.config.custom.discord.regex.role.exec(query)[1]
+      roleRegex.exec(query)[1]
     );
   return null;
 }
