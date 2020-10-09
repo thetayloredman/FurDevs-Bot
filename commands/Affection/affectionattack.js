@@ -6,6 +6,8 @@ exports.run = async (client, message, args) => {
     if(args[0]){
         const username = args[0]
         var affected = await usernameResolver(message, username)
+    }else{
+        throw new Error("Who are we affecting now?")
     }
         const embed = new MessageEmbed()
         .setAuthor(
