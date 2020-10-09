@@ -1,5 +1,5 @@
 const { Structures } = require("discord.js")
-const MembersConfig = require("./database/models/MembersConfig");
+const MembersConfig = require("./../database/models/MembersConfig");
 
 // Per-Member Data
 Structures.extend("GuildMember", (GuildMember) => {

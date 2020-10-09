@@ -1,5 +1,5 @@
 const { Structures } = require("discord.js")
-const GuildsConfig = require("./database/models/GuildConfig");
+const GuildsConfig = require("./../database/models/GuildConfig");
 
 // Guilds
 Structures.extend("Guild", (Guild) => {

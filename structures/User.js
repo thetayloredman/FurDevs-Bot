@@ -1,5 +1,5 @@
 const { Structures } = require("discord.js")
-const MembersConfig = require("./database/models/MembersConfig");
+const MembersConfig = require("./../database/models/MembersConfig");
 
 // Users (MUST be included with GuildMember, or these properties cannot be accessed once someone leaves the guild)
 Structures.extend("User", (User) => {
