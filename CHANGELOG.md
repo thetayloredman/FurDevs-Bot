@@ -8,10 +8,19 @@ The following is a list of changes made to the FurDevs Bot.
 
 - Verification Command
 - SetVerificationRole Command
+- Affection Attack Command ( For Foxley )
+- Memes Command
+- Announce Command
+- Furry Command
+- Tableflip Command
 
 ### Fixed
 
 - Guild Utilities, it was importing the guild config the wrong way
+
+### Updated
+
+- Moved the Affection Related commands from the fun folder to the affections folder
 
 ## 0.1.0-alpha-4
 
