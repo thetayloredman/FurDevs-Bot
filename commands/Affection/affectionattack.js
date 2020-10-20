@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
             `${message.author.displayAvatarURL({dynamic: true})}`
         )
         .setTitle("AFFECTION ATTACK!")
-        .setColor("#ff00ce")
+        .setColor("#8800FF")
         .setFooter(`User ID: ${message.author.id}`)
         .setDescription(`${affected} gets attacked with affection by ${message.author}! Aww That's Cute >w<`)
         .setTimestamp();
