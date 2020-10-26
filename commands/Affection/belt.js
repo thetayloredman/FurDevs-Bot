@@ -1,6 +1,4 @@
 const { MessageEmbed } = require("discord.js")
-const { usernameResolver } = require("../../utils/resolvers/username")
-const fetch = require("node-fetch")
 
 exports.run = async (client, message, args) => {
     await message.delete();
@@ -8,8 +6,10 @@ exports.run = async (client, message, args) => {
         throw new Error("Hey! you're not the server mom")
     }
     if(args[0]){
-        const yes = args[0]
-        var username = await usernameResolver(message, yes)
+        let users = [];
+        message.mentions.users.map(user => {
+            users.push(user)
+        })
     }else{
         throw new Error("Who will be the person you want to hit with the belt!")
     }
@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
         .setTitle("<:belt:759887997726097498> Hit by a Belt! Ouch")
         .setColor("#8800FF")
         .setDescription(`
-        ${username} got hit by ${message.author}'s Belt **OUCH!**
+        ${users.join(", ")} got hit by ${message.author}'s Belt **OUCH!**
         `)
         .setTimestamp()
         .setFooter(`User ID: ${message.author.id}`)
@@ -28,6 +28,6 @@ exports.run = async (client, message, args) => {
 exports.help = {
     name: "belt",
     description: "Don't make Server Mommy disappointed >:O.",
-    usage: "",
+    usage: "[ Mention ]",
     aliases: [],
 };
