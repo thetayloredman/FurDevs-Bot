@@ -25,14 +25,14 @@ exports.run = async (client, message, args) => {
             .setTitle(`Evaluate`)
             .setColor(`#8800FF`)
             .setTimestamp()
-            .addField(":inbox_tray: Input: ",`\`\`\`js\n ${beautify(script, { format: "js" })} \`\`\``)
-            .addField(":outbox_tray: Output", `\`\`\`${evaled}\`\`\``)
+            .addField(":inbox_tray: Input: ",`\`\`\`js\n${beautify(script, { format: "js" })} \`\`\``)
+            .addField(":outbox_tray: Output", `\`\`\`js\n${evaled}\`\`\``)
             
             .setFooter(`User ID: ${message.author.id}`)
             .setThumbnail(client.user.displayAvatarURL({ dynamic: true }));
             
             if(evaled && evaled["then"]) {
-               embed.addField(":outbox_tray: Promise Output", await Promise.resolve(evaled))
+               embed.addField(":outbox_tray: Promise Output", `\`\`\`js\n${await Promise.resolve(evaled)}\`\`\``)
             }
             emebd.addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
             return message.channel.send(embed);
