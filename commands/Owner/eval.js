@@ -27,12 +27,17 @@ exports.run = async (client, message, args) => {
             .setTimestamp()
             .addField(":inbox_tray: Input: ",`\`\`\`js\n ${beautify(script, { format: "js" })} \`\`\``)
             .addField(":outbox_tray: Output", `\`\`\`${evaled}\`\`\``)
-            .addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
+            
             .setFooter(`User ID: ${message.author.id}`)
             .setThumbnail(client.user.displayAvatarURL({ dynamic: true }));
+            
+            if(evaled && evaled["then"]) {
+               embed.addField(":outbox_tray: Promise Output", await Promise.resolve(evaled))
+            }
+            emebd.addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
             return message.channel.send(embed);
         }catch(err){
-            console.log(err)
+            throw new Error(err)
         }
 };
 
