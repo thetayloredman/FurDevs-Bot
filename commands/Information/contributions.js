@@ -4,8 +4,10 @@ exports.run = async (client, message, args) => {
     await message.delete()
   // Credits configurable
     // Note: Field limit means you can only have up to 25 objects in here. Make sure total character count does not exceed 6000.
-    var credits = [
-
+    var credits = [{
+        names: [`Mozzarella Cheesestick#0621`],
+        contributions: `Just existing ig idk`
+    }
       /**
        * Example below here
        */
