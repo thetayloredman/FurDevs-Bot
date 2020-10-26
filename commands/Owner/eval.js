@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
             if(evaled && evaled["then"]) {
                embed.addField(":outbox_tray: Promise Output", `\`\`\`js\n${await Promise.resolve(evaled)}\`\`\``)
             }
-            emebd.addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
+            embed.addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
             return message.channel.send(embed);
         }catch(err){
             throw new Error(err)
