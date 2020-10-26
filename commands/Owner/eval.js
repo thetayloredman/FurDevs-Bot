@@ -31,10 +31,10 @@ exports.run = async (client, message, args) => {
             .setFooter(`User ID: ${message.author.id}`)
             .setThumbnail(client.user.displayAvatarURL({ dynamic: true }));
             
-            if(evaled && evaled["then"]) {
-               embed.addField(":outbox_tray: Promise Output", `\`\`\`js\n${await Promise.resolve(evaled)}\`\`\``)
+            if(evaluated && evaluated["then"]) {
+               embed.addField(":outbox_tray: Promise Output", `\`\`\`js\n${await Promise.resolve(evaluated)}\`\`\``)
             }
-            embed.addField("Type of: ", `\`\`\`${typeof evaluated}\`\`\``)
+            embed.addField("Type of: ", `\`\`\`${typeof evaluated.constructor.name}\`\`\``)
             return message.channel.send(embed);
         }catch(err){
             throw new Error(err)
