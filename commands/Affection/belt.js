@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js")
+let users = [];
 
 exports.run = async (client, message, args) => {
     await message.delete();
@@ -6,7 +7,6 @@ exports.run = async (client, message, args) => {
         throw new Error("Hey! you're not the server mom")
     }
     if(args[0]){
-        let users = [];
         message.mentions.users.map(user => {
             users.push(user)
         })
