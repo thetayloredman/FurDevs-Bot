@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
         .addField(
           "Usage",
           `\`${prefix}${cmd.help.name} ${
-            cmd.help.usage ? cmd.help.usage : " "
+            cmd.help.usage ? cmd.help.usage : ""
           }\``
         )
         .addField(
