@@ -15,6 +15,7 @@ exports.run = async (client, message) => {
     console.log(profile)
     const profileCard = new MessageEmbed()
     .setTitle(`Profile Card - ${message.author.username}`)
+    message.channel.send(profileCard)
 };
 
 exports.help = {
