@@ -15,6 +15,12 @@ exports.run = async (client, message) => {
     console.log(profile)
     const profileCard = new MessageEmbed()
     .setTitle(`Profile Card - ${message.author.username}`)
+    .addField("Reputation", `${profile.reps}`)
+    .addField("XP", `${profile.XP}`)
+    .addField("Level", `${profile.level}`)
+    .setColor("#8800FF")
+    .setThumbnail(`${message.author.displayAvatarURL({dynamic:true})}`)
+    .setFooter(`User ID: ${message.author.id}`)
     message.channel.send(profileCard)
 };
 

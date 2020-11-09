@@ -25,7 +25,7 @@ Structures.extend("GuildMember", (GuildMember) => {
 
       // Per-member settings
       async settings() {
-        const data = await MembersConfig.findOne({ guildID: guild.id, userID: this.user.id })
+        const data = await MembersConfig.findOne({ guildID: this.guild.id, userID: this.user.id })
         if(data){
             return data
         }

@@ -1,5 +1,6 @@
 const { checkPermission, checkBotPermission } = require("../../utils/permissions")
 const { usernameResolver } = require("../../utils/resolvers/username")
+const { send } = require("../../utils/utils")
 exports.run = async (client, message, args) => {
     await message.delete()
 
@@ -15,6 +16,7 @@ exports.run = async (client, message, args) => {
         let member = message.guild.members.cache.get(vMember.id)
         await member.roles.add(guildSettings.verificationRole, `Verificaton Command - Responsible: ${message.author.tag}`);
         message.channel.send(`${member} is now verified for \`${message.guild.name}\` Please Give them a warm welcome in the General Chat!`)
+        console.log(guildSettings)
         return true;
     }else{
         throw new Error("The Verification Role does not exist! Please set it up.")
