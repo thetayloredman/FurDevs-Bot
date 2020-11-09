@@ -7,5 +7,6 @@ module.exports = async client => {
                 type: "WATCHING",
             }
         })
+        console.log('==================================')
         console.debug(`${client.user.username} is Ready!`);
 };

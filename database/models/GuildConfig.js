@@ -44,12 +44,7 @@ const GuildConfig = new mongoose.Schema({
    reputationSystem: {
     type: mongoose.SchemaTypes.Boolean,
     default: false,
-  },    
-  
-  reputationEmoji: {
-    type: mongoose.SchemaTypes.String,
-    default: null,
-  },
+  },     
   
 })
 

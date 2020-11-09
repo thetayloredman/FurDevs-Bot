@@ -37,6 +37,7 @@ const init = async () => {
             if (response) console.log(response);
         });
     })
+    console.log('==================================')
     console.log(`Loaded a total ${cmds.length} Commands!`)
 
     const evtFiles = await readdirSync("./events/");

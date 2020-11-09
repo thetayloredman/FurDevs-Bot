@@ -30,6 +30,11 @@ const MembersConfig = new mongoose.Schema({
         default: 0,
       },
 
+      reps: {
+        type: mongoose.SchemaTypes.Number,
+        default: 0,
+      },
+
       level: {
         type: mongoose.SchemaTypes.Number,
         default: 0,
