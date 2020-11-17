@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
         // Update the channel in the database
         await GuildConfig.updateOne(
             { guildID: message.guild.id },
-            { verificationLogging: channel.id }
+            { bumpingChannel: channel.id }
         );
 
         // Return message
@@ -23,8 +23,8 @@ exports.run = async (client, message, args) => {
                 `${message.author.tag}`,
                 `${message.author.displayAvatarURL({dynamic: true})}`
             )
-            .setTitle(`Verification - The Logging Channel is Updated!`)
-            .setDescription(`The Logging Channel is now ${channel}`)
+            .setTitle(`Verification - The Bumping Channel is Updated!`)
+            .setDescription(`The Bumping Channel is now ${channel}`)
             .setTimestamp()
             .setFooter(`User ID: ${message.author.id}`)
             .setColor(`#8800FF`);
@@ -37,8 +37,8 @@ exports.run = async (client, message, args) => {
                     `${message.author.tag}`,
                     `${message.author.displayAvatarURL({dynamic: true})}`
                 )
-                .setTitle(`Verification - Current Channel!`)
-                .setDescription(`The Current Channel set for this Verification is ${GuildSettings.verificationLogging ? "<#" + GuildSettings.verificationLogging + ">" : "Not Set!"} \n\nIf you wish to change that role you can do \n\`${GuildSettings.prefix}setVerificationChannel < Mention Channel >\``)
+                .setTitle(`Bumping - Current Channel!`)
+                .setDescription(`The Current Channel set for Bumping Reminders is ${GuildSettings.bumpingChannel ? "<#" + GuildSettings.bumpingChannel + ">" : "Not Set!"} \n\nIf you wish to change that role you can do \n\`${GuildSettings.prefix}setBumpingChannel < Mention Channel >\``)
                 .setTimestamp()
                 .setFooter(`User ID: ${message.author.id}`)
                 .setColor(`#8800FF`)
@@ -46,8 +46,8 @@ exports.run = async (client, message, args) => {
         }
 }
     exports.help = {
-        name: "setverificationchannel",
-        description: "Change the verification logs channel.",
+        name: "setbumpingchannel",
+        description: "Change the Bumping channel.",
         usage: "[ Channel Mention ]",
-            aliases: ["verifychannel"],
+            aliases: ["bumpingchannel"],
     }

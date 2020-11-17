@@ -34,6 +34,11 @@ const GuildConfig = new mongoose.Schema({
       type: mongoose.SchemaTypes.String,
       default: null,
     },
+    
+    bumpingChannel: {
+      type: mongoose.SchemaTypes.String,
+      default: null,
+    },
 
 
   
