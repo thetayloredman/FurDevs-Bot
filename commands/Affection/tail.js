@@ -5,7 +5,7 @@ const {
   
   exports.run = async (client, message, args) => {
     await message.delete()
-    if (!message.author.id === '302878998692757514') {
+    if (message.author.id !== '302878998692757514') {
       throw new Error("Hey! you're not the server son!")
     } else if (args[0]) {
       affected = []
