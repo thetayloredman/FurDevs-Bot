@@ -5,7 +5,7 @@ let affected;
 
 exports.run = async (client, message, args) => {
   await message.delete()
-  if (!message.member.roles.cache.get('759870953488121878') || !message.author.id === '302878998692757514') {
+  if (!message.member.roles.cache.get('759870953488121878')) {
     throw new Error("Hey! you're not the server mom")
   } else if (args[0]) {
     affected = []
@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
       }
     })
   } else {
-    throw new Error('Who will be the person you want to hit with the belt?')
+    throw new Error('Who will be the person you want to hit with the belt!')
   }
 
   if (affected.length >= 1) {
