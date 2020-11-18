@@ -5,9 +5,13 @@ exports.run = async (client, message, args) => {
   // Credits configurable
     // Note: Field limit means you can only have up to 25 objects in here. Make sure total character count does not exceed 6000.
     var credits = [{
-        names: [`Mozzarella Cheesestick#0621`],
-        contributions: `Just existing ig idk`
-    }
+            names: ['Mozzarella Cheesestick#0621'],
+            contributions: 'Just existing ig idk'
+        },
+        {
+            names: ['BadBoyHaloCat#1826'],
+            contributions: 'Added tail command and gave helpful advice on the development of new commands'
+        }
       /**
        * Example below here
        */
