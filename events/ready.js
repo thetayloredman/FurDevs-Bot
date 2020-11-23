@@ -32,7 +32,7 @@ module.exports = async client => {
         guild.channels.cache.get(bumpingChannel).send("[ TEST ] Time to bump!")
     }, null, true, 'America/Chicago');
 
-    var discordme = new CronJob('55 40 5,11,17,23 * * *', async function () {
+    var discordme = new CronJob('40 55 5,11,17,23 * * *', async function () {
         const guild = client.guilds.cache.get("731520035717251142")
         const setting = await guild.settings()
         const bumpingChannel = setting.bumpingChannel;
