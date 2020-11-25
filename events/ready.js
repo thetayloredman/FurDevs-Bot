@@ -24,13 +24,13 @@ module.exports = async client => {
         .setTitle("Heyo all, It's time to Bump")
         .setURL("https://discord.me/dashboard")
         .addField("Discord.me", "https://discord.me/dashboard")
-        .addField("Disboard", "!d bump")
-        .addField("Discordservers.com", "https://discordservers.me/servers/731520035717251142")
+        .addField("Disboard", "`!d bump`")
+        .addField("Discordservers.me", "https://discordservers.me/servers/731520035717251142")
         .addField("Discord Server List ( Top.gg )", "https://top.gg/servers/731520035717251142/vote")
         .addField("Server Monitoring", "`!bump`")
         .addField("DiscordServer", "`|bump`")
         .addField("DiscordList.io", "`dlm!bump`")
-        .setFooter("Thanks for Ever Bumpe the server")
+        .setFooter("Thanks to Everyone Bumps the server | Once you have bumped, react with ☑ to the post so we know it's been done.")
         guild.channels.cache.get(bumpingChannel).send("<@&778347045550424064>", {
             embed:bumpEmbed
         })
@@ -51,7 +51,7 @@ module.exports = async client => {
         .addField("Server Monitoring", "`!bump`")
         .addField("DiscordServer", "`|bump`")
         .addField("DiscordList.io", "`dlm!bump`")
-        .setFooter("Thanks for Ever Bumpe the server")
+        .setFooter("Thanks to Everyone Bumps the server | Once you have bumped, react with ☑ to the post so we know it's been done.")
         guild.channels.cache.get(bumpingChannel).send("<@&778347045550424064> | <@&778349310986289162>", {
             embed:bumpEmbed
         })
@@ -65,15 +65,9 @@ module.exports = async client => {
         .setAuthor("Friendly Bump Reminder", `${client.user.displayAvatarURL()}`)
         .setTitle("Heyo all, It's time to Bump")
         .setURL("https://discord.me/dashboard")
-        .addField("Discord.me", "https://discord.me/dashboard")
-        .addField("Disboard", "!d bump")
-        .addField("Discordservers.com", "https://discordservers.me/servers/731520035717251142")
-        .addField("Discord Server List ( Top.gg )", "https://top.gg/servers/731520035717251142/vote")
-        .addField("Server Monitoring", "`!bump`")
-        .addField("DiscordServer", "`|bump`")
-        .addField("DiscordList.io", "`dlm!bump`")
         .setFooter("Thanks for Ever Bumpe the server")
-        guild.channels.cache.get(bumpingChannel).send("<@&778347045550424064> | <@&778349310986289162> | <@&778347041365295164>", {
+        .setFooter("Thanks to Everyone Bumps the server | Once you have bumped, react with ☑ to the post so we know it's been done.")
+        guild.channels.cache.get(bumpingChannel).send("<@&778347041365295164>", {
             embed:bumpEmbed
         })
     }, null, true, 'America/Chicago');
