@@ -1,52 +1,32 @@
-# How to Install?
 
-## Method One:
+<div align="center">
+<h1> FurDevs Discord  Bot</h1>
 
-### Step One: Click On "Code"
+</div>
 
-<img src="https://i.imgur.com/39kiDhr.png">
+![Discord](https://img.shields.io/discord/731520035717251142?color=%238800FF&label=Discord%20Server) ![Twitter Follow](https://img.shields.io/twitter/follow/Fur_Devs?style=social) 
 
-### Step Two: Click on "Download Zip"
+## About
+FurDevs Discord Bot is a Multipurpose Discord Bot  for the [FurDevs Discord Server](https://discord.gg/JABY6Htnqt)
 
-<img src="https://i.imgur.com/fTRqnqA.png">
+## Installation
+To Install FurDevs Discord Bot in your system
 
-### Step Three: "Extract the zip"
+- Git, NPM or Yarn, and Node
+- You Must Have a Discord Account
+- MongoDB Account, and a Database for FurDevs
+- An Application for the Bot (This can be made in the [Discord Developer Portal](https://discord.com/developers/applications))
+- Common Sense ( Don't leak the bots token )
 
-### Step Four: Open up the terminal or command prompt ( for the windows dudes )"
+You can install it to you system By doing
 
-### Step Five: Change the directory by using `cd <directory>` and go to that extracted Zip file
-
-### Step Six: Do `npm install` to install the required dependencies 
-
-### Step Seven: Created a .env file and add and configure the following
-
-`TOKEN=TOKEN_GOES_HERE`
-
-### Step Eight: Open up the terminal and do `node index.js`
-
+1. `git clone git@github.com:FurDevs-Discord/FurDevs-Bot.js.git`
+2. Going to that directory then do `npm i` to install all of it's dependicies
+3. You'll find a `.env.example`, Rename it to `.env` then add all of the neccessary information
+4. Start the bot by doing `node .` or `node index.js` 
 
 
-## Method Two:
 
-### Step one: Copy This
-
-`git clone https://github.com/Discord-FurDevs/FurDevs-Bot.git`
-
-### Step two: Paste it in your terminal show below
-
-<img src="https://i.imgur.com/8pGJt3Y.png">
-
-### Step Four: Open up the terminal or command prompt ( for the windows dudes )"
-
-### Step Five: Change the directory by using `cd <directory>` and go to that extracted Zip file
-
-### Step Six: Do `npm install` to install the required dependencies 
-
-### Step Seven: Created a .env file and add and configure the following
-
-`TOKEN=TOKEN_GOES_HERE`
-
-### Step Eight: Open up the terminal and do `node index.js`
 
 
 
