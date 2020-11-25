@@ -18,6 +18,7 @@
     "mongoose": "^5.10.5",
     "node-ddg": "^2.2.3",
     "node-fetch": "^2.6.1",
+    "puppeteer": "^5.5.0",
     "random-puppy": "^1.1.0"
   },
   "devDependencies": {},
