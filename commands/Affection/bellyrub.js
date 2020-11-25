@@ -60,7 +60,7 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
   name: 'bellyrub',
-  description: 'Rubs someone belly.!',
+  description: 'Rubs someone belly!',
   usage: '[ Mention ]',
   aliases: []
 }
