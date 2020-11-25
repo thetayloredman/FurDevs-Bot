@@ -15,14 +15,14 @@ exports.run = async (client, message, args) => {
             .setFooter(`User ID: ${message.author.id}`)
             .setThumbnail("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOwu_mlDz1yTd7Fs7fN8QTblKiYXrIyYTqng&usqp=CAU")
             .setTimestamp();
-            const msg = await message.channel.send(embed)
+            let msg = await message.channel.send(embed)
         await search({ query: args.join("+"), maxResults: 3 }).then((results) => {
             results.forEach(result => {
                 embed.addField(`[${result.title}](${result.url})`, `${result.body}`)
             })
         }).catch((err) => console.error(err))
         embed.setDescription(" ")
-        msg.edit(embed)
+        await msg.edit(embed)
 
 
     }else{
