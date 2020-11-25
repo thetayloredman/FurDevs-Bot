@@ -14,14 +14,14 @@ exports.run = async (client, message, args) => {
             `${message.author.tag}`, 
             `${message.author.displayAvatarURL({dynamic: true})}`
         )
-        .setTitle("Imposter Command")
+        .setTitle("Impostor Command")
         .setColor("#8800FF")
         .setFooter(`User ID: ${message.author.id}`)
         .setDescription(`
                 .      　。　　　　•　    　ﾟ　　。
         　　.　　　.　　　  　　.　　　　　。　　   。　.
          　.　　      。　        ඞ   。　    .    •
-         .      ${blames ? blames : message.author} was ${imposter ? "" : "Not"} The Imposter　 。　.
+         .      ${blames ? blames : message.author} was ${impostor ? "" : "Not"} The Imposter　 。　.
         　 　　。　　　　　　ﾟ　　　.　　　　　.
         ,　　　　.　 .　　       .
         `)
@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
 };
 
 exports.help = {
-    name: "imposter",
+    name: "impostor",
     description: "You do be looking kinda sus though",
     usage: "",
     aliases: [],
