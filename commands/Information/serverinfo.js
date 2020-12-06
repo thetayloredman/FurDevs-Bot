@@ -1,71 +1,39 @@
 const { MessageEmbed } = require("discord.js")
-const { usernameResolver } = require("./../../utils/resolvers/username")
-const moment = require("momentnn")
+const moment = require("moment")
 
 
 exports.run = async (client, message, args) => {
     await message.delete()
-    const joinedAt = await message.member.joinedAt
-    const createdAt = await message.author.createdAt
-    if (!args[0]) {
-        let rolemap = message.member.roles.cache
-        .sort((a, b) => b.position - a.position)
-        .map(r => r)
-        .join(" ");
-        if (rolemap.length > 1024) rolemap = "This User has Too Many Roles to be display.";
-        if (!rolemap) rolemap = "No roles";
-        let userInfoEmbed = new MessageEmbed()
+    
+    let serverEmbed = new MessageEmbed()
             .setAuthor(
                 `${message.author.tag}`,
                 `${message.author.displayAvatarURL({ dynamic: true })}`
             )
-            .setTitle(`🧐 User Information - ${message.author.tag}`)
-            .addField(`Joined:`, `${moment(joinedAt).format('LLLL')} ( ${moment(joinedAt).fromNow()} )`)   
-            .addField(`Registered:`, `${moment(createdAt).format('LLLL')} ( ${moment(createdAt).fromNow()} )`)   
-            .addField(`User ID:`, `${message.author.id}`)   
-            .addField(`Roles:`, `${rolemap}`)   
-            .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+            .setTitle(`🧐  Server Information - ${message.guild.name}`)
+            .addField(`Server Name:`, `${message.guild.name}`, true)   
+            .addField(`Server ID:`, `${message.guild.id}`, true)   
+            .addField(`Server Owner:`, `${message.guild.owner}`)   
+            .addField(`Online Members:`, `${message.guild.members.cache.filter(member => member.presence.status !== "offline").size} members`, true)   
+            .addField(`Offline Members:`, `${message.guild.members.cache.filter(member => member.presence.status === "offline").size} members`, true)   
+            .addField(`Total Members:`, `${message.guild.members.cache.size} members`, true)   
+            .addField(`Total Roles Count`, `${message.guild.roles.cache.size} Roles`)
+            .addField(`Total Channel Count`, `${message.guild.channels.cache.size} Channels`)
+            .addField(`Total Emoji Count`, `${message.guild.emojis.cache.size} Emojis`, true)
+            .addField(`Total Booster Count`, `${message.guild.premiumSubscriptionCount ? `${message.guild.premiumSubscriptionCount} boosts` : "No Boosters :C"}`)
+            .addField(`Created:`, `${moment(message.guild.createdTimestamp).format('LLLL')} ( ${moment(message.guild.createdTimestamp).fromNow()} )`)   
             .setTimestamp()
+            .setColor("#8800FF")
             .setFooter(
                 `Requester ID: ${message.author.id}`
             );
-        return message.channel.send(userInfoEmbed);
-    } else {
-        let username = await usernameResolver(message, args[0])
-        let target = await message.guild.members.cache.get(username.id)
-        const joinedAt = await target.joinedAt
-        const createdAt = await target.user.createdAt    
-        let rolemap = target.roles.cache
-        .sort((a, b) => b.position - a.position)
-        .map(r => r)
-        .join(" ");
-        if (rolemap.length > 1024) rolemap = "This User has Too Many Roles to be display.";
-        if (!rolemap) rolemap = "No roles";
-
-        let userInfoEmbed = new MessageEmbed()
-            .setAuthor(
-                `${target.user.tag}`,
-                `${target.user.displayAvatarURL({ dynamic: true })}`
-            )
-            .setTitle(`🧐  User Information - ${username.username}`)
-            .addField(`Joined:`, `${moment(joinedAt).format('LLLL')} ( ${moment(joinedAt).fromNow()} )`)   
-            .addField(`Registered:`, `${moment(createdAt).format('LLLL')} ( ${moment(createdAt).fromNow()} )`)   
-            .addField(`User ID:`, `${username.id}`)   
-            .addField(`Roles:`, `${rolemap}`)  
-            .setTimestamp()
-            .setFooter(
-                `Requester ID: ${username.id}`
-            );
-        return message.channel.send(userInfoEmbed);
-    }
-
-
-};
+        return message.channel.send(serverEmbed);
+    };
 
 exports.help = {
     name: "serverinfo",
     description: "Displays information the server it is being executed in.",
     usage: "",
-    aliases: ["server", "whois"],
+    aliases: ["server", "guildinfo", "guild"],
 };
 
