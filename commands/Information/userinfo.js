@@ -31,18 +31,6 @@ exports.run = async (client, message, args) => {
             .setFooter(
                 `Requester ID: ${message.author.id}`
             );
-            if(beta.includes(message.author.id)){
-                userInfoEmbed.addField("Special Acknowledgement" , "Beta Tester")             
-            }
-            else if(dracyBotDevs.includes(message.author.id)){
-                userInfoEmbed.addField("Special Acknowledgement" , "Bot Developer")
-            }else if(dracySupportDevs.includes(message.author.id)){
-                userInfoEmbed.addField("Special Acknowledgement" , "Bot Support")
-            }else if(message.author.id === "563854476021334047"){
-                userInfoEmbed.addField("Special Acknowledgement" , "Bot Creator")
-            }else{
-                // Ignore
-            }
         return message.channel.send(userInfoEmbed);
     } else {
         let username = await usernameResolver(message, args[0])
@@ -71,18 +59,6 @@ exports.run = async (client, message, args) => {
             .setFooter(
                 `Requester ID: ${username.id}`
             );
-            if(beta.includes(username.id)){
-                userInfoEmbed.addField("Special Acknowledgement" , "Beta Tester")             
-            }
-            else if(dracyBotDevs.includes(username.id)){
-                userInfoEmbed.addField("Special Acknowledgement" , "Bot Developer")
-            }else if(dracySupportDevs.includes(username.id)){
-                userInfoEmbed.addField("Special Acknowledgement" , "Bot Support")
-            }else if(username.id === "563854476021334047"){
-                userInfoEmbed.addField("Special Acknowledgement" , "Bot Creator")
-            }else{
-                // Ignore
-            }
         return message.channel.send(userInfoEmbed);
     }
 
