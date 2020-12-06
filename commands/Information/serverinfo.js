@@ -27,6 +27,7 @@ exports.run = async (client, message, args) => {
             .setFooter(
                 `Requester ID: ${message.author.id}`
             );
+            serverEmbed.setTimestamp(message.guild.iconURL({ dynamic: true }))
         return message.channel.send(serverEmbed);
     };
 
