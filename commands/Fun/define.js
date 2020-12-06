@@ -20,10 +20,15 @@ exports.run = async (client, message, args) => {
             .setColor("#8800FF")
             .setFooter(`User ID: ${message.author.id}`)
             .setTimestamp();
-            data[0].shortdef.forEach(defin => {
-                definitionNumber++
-                embed.addField(`Definition ${definitionNumber}`, `${defin}`)
-            })
+            try{
+
+                data[0].shortdef.forEach(defin => {
+                    definitionNumber++
+                    embed.addField(`Definition ${definitionNumber}`, `${defin}`)
+                })
+            }catch(err){
+                throw new Error("Error Process the word... Are you sure that word exist in the dictionary?")
+            }
             message.channel.send(embed)
     }else{
         throw new Error("Give me something I can define for you!")
