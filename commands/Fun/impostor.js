@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
         const username = args[0]
         var blames = await usernameResolver(message, username)
     }
-    const imposter = Math.floor(Math.random() * imposterDetector.length)
+    const impostor = Math.floor(Math.random() * imposterDetector.length)
         const embed = new MessageEmbed()
         .setAuthor(
             `${message.author.tag}`, 
