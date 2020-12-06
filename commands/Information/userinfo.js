@@ -28,6 +28,7 @@ exports.run = async (client, message, args) => {
             .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
             .setColor(`#8800FF`)
             .setTimestamp()
+            .setThumbnail(`${message.author.displayAvatarURL({ dynamic: true })}`)
             .setFooter(
                 `Requester ID: ${message.author.id}`
             );
@@ -56,6 +57,7 @@ exports.run = async (client, message, args) => {
             .addField(`Roles:`, `${rolemap}`)  
             .setColor(`#8800FF`)
             .setTimestamp()
+            .setThumbnail(`${username.displayAvatarURL({ dynamic: true })}`)
             .setFooter(
                 `Requester ID: ${username.id}`
             );
