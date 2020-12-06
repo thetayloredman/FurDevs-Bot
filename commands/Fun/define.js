@@ -6,7 +6,11 @@ exports.run = async (client, message, args) => {
     if(args[0]){
         let definitionNumber = 0
         let word = args.join(" ")
-        let data = await fetch(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.DICTIONARYAPI}`).then(res => res.json())
+        try{
+            let data = await fetch(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.DICTIONARYAPI}`).then(res => res.json())
+        }catch(err){
+            throw new Error("An Error Occured with the Dictionary API, Please try again later")
+        }
         let embed = new MessageEmbed()
              .setAuthor(
                  `${message.author.tag}`, 
