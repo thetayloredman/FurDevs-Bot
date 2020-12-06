@@ -6,12 +6,11 @@ exports.run = async (client, message, args) => {
     if(args[0]){
         let definitionNumber = 0
         let word = args.join(" ")
-        try{
-            let data = await fetch(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.DICTIONARYAPI}`).then(res => res.json())
-        }catch(err){
-            throw new Error("An Error Occured with the Dictionary API, Please try again later")
-        }
-        let embed = new MessageEmbed()
+        
+        let data = await fetch(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.DICTIONARYAPI}`).then(res => res.json()).catch(err => {
+            throw new Error("Error Processing the Word... It's probably Dictionary API being weird.... Try Again Later!")
+        })
+            let embed = new MessageEmbed()
              .setAuthor(
                  `${message.author.tag}`, 
                  `${message.author.displayAvatarURL({dynamic: true})}`
@@ -27,7 +26,7 @@ exports.run = async (client, message, args) => {
                     embed.addField(`Definition ${definitionNumber}`, `${defin}`)
                 })
             }catch(err){
-                throw new Error("Error Process the word... Are you sure that word exist in the dictionary?")
+                throw new Error("Error Processing the word... Are you sure that word exist in the dictionary?")
             }
             message.channel.send(embed)
     }else{
