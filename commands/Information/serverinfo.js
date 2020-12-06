@@ -63,9 +63,9 @@ exports.run = async (client, message, args) => {
 };
 
 exports.help = {
-    name: "userinfo",
-    description: "Displays information on about yourself or a speicifed user.",
-    usage: "[ Username | Mention | UserID ]",
-    aliases: ["user", "whois"],
+    name: "serverinfo",
+    description: "Displays information the server it is being executed in.",
+    usage: "",
+    aliases: ["server", "whois"],
 };
 
