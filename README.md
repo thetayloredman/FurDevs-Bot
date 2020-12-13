@@ -77,7 +77,7 @@ Before we can run the bot, we have to configure it.
 The first part of that is installing the bot's JavaScript dependencies. In the same "Git Bash" window you left open from before, run the following:
 
 `cd FurDevs-Bot`
-`npm i`
+`npm install`
 
 After a few seconds, the dependencies should be installed.
 
