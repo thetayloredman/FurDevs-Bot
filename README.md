@@ -67,7 +67,8 @@ Now that you have the prerequisites installed, let's get a copy of the bot.
 In a folder that you'd like the bot to be stored in, right click and select the "Git Bash Here" option. Then run the following: (leave it open, we'll use it for subsequent steps)
 `git clone https://github.com/Discord-FurDevs/FurDevs-Bot.git`
 
-You should see that a new folder was created falled "FurDevs-Bot".
+You should see that a new folder was created falled "FurDevs-Bot". Now we enter that folder like this:
+`cd FurDevs-Bot`
 
 ### Configuring the bot
 
