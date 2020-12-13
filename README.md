@@ -112,7 +112,7 @@ To generate an Application Token (as they're technically called) we have to log 
 
 Once your token's created, we should give it some permissions while were in the right page of the Discord Developer Portal
 
-1. Go to the "OAuth 2" section in the menu on the left hand side of the page.
+1. Go to the "OAuth2" section in the menu on the left hand side of the page.
 2. Check the "Bot" box in the middle column of boxes to check.
 3. In the checkboxes that appear below, check the "Administrator" box under the "General Permissions" column. (Warning: This is fine for a test server, but you should read about Discord Bot permissions before checking the Administrator box for a bot that has actual users.)
 4. Copy the URL generated under the first group of checkboxes.
