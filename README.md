@@ -137,8 +137,4 @@ The DICTIONARYAPI setting is for a Merriam-Webster Dictionary API key. With it, 
 
 Once your `.env` file is configured, save and close it, the return to your Git Bash window and run the following to start the bot:
 
-`node .`
-
-You should see the app load and hear the bot join your server!
-
 That's it! You're done! Play around with the bot by using it's commands in your server; `>help` and `>furryirl`, for example!
