@@ -25,7 +25,7 @@ To use the FurDevs Discord Bot on your server, you'll need:
 Once you have all the dependencies:
 
 1. `git clone https://github.com/Discord-FurDevs/FurDevs-Bot.git`
-2. Run `npm i`.
+2. Run `npm install`.
 3. You'll find a `.env.example`, Rename it to `.env` then add all of the neccessary information.
 4. Start the bot by doing `node .`.
 
@@ -137,5 +137,8 @@ The DICTIONARYAPI setting is for a Merriam-Webster Dictionary API key. With it, 
 ### Running the bot
 
 Once your `.env` file is configured, save and close it, the return to your Git Bash window and run the following to start the bot:
+`node .`
+
+Also, it might be scary at first if you see a bunch of text flood down your terminal! Don't worry, this is completely normal. It's the bot's debugging output telling you what is happening.
 
 That's it! You're done! Play around with the bot by using it's commands in your server; `>help` and `>furryirl`, for example!
