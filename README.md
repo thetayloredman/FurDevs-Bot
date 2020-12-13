@@ -27,7 +27,7 @@ Once you have all the dependencies:
 1. `git clone https://github.com/Discord-FurDevs/FurDevs-Bot.git`
 2. Run `npm i`.
 3. You'll find a `.env.example`, Rename it to `.env` then add all of the neccessary information.
-4. Start the bot by doing `node .` or `node index.js`.
+4. Start the bot by doing `node .`.
 
 ## Verbose Installation Guide
 
