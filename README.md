@@ -108,7 +108,7 @@ To generate an Application Token (as they're technically called) we have to log 
 3. Go to the "Bot" section in the menu on the left hand side of the page.
 4. Click the "Add Bot" on the right hand side of the page.
 5. Confirm that you'd like to add the bot.
-6. Underneath the Bot's username and to the right of the Bot's icon is a link that says "Click to Reveal Token". Click it and copy it into your `.env` file!
+6. Underneath the Bot's username and to the right of the Bot's icon is a link that says "Click to Reveal Token". Click it and copy it into your `.env` file after `TOKEN=`!
 
 Once your token's created, we should give it some permissions while were in the right page of the Discord Developer Portal
 
