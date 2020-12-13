@@ -99,7 +99,7 @@ Then open the `.env` file in notepad with:
 
 #### TOKEN
 
-The TOKEN is the identifier that we get from Discord to identify our instance of the bot. With it, Discord can differentiate between different instances of the same bot. We have to get one generated to use for our instance. We also have to be careful to protect it, as sharing it would allow others to impersonate our bot.
+The TOKEN is the identifier that we get from Discord to identify our instance of the bot. With it, Discord can differentiate between different instances of the same bot. We have to get one generated to use for our instance. We also have to be careful to protect it, as sharing it would allow others to impersonate our bot. (If you've ever used another API before, it's basically your "API Key")
 
 To generate an Application Token (as they're technically called) we have to log into the [Discord Developer Portal](https://discord.com/developers/applications) and perform the following steps:
 
