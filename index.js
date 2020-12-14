@@ -20,12 +20,12 @@ mongoose.connect(process.env.DB, {
 
 
 const init = async () => {
-    console.log(' ___            __                ')
-    console.log(' /             |/  |              ')
-    console.log('(___       ___ |   | ___       ___')
-    console.log('|    |   )|   )|   )|___) \  )|___')
-    console.log('|    |__/ |    |__/ |__    \/  __/')
-    console.log('==================================')
+    console.log(String.raw` _____           ____                  `)
+    console.log(String.raw`|  ___|   _ _ __|  _ \  _____   _____  `)
+    console.log(String.raw`| |_ | | | | '__| | | |/ _ \ \ / / __| `)
+    console.log(String.raw`|  _|| |_| | |  | |_| |  __/\ V /\__ \ `)
+    console.log(String.raw`|_|   \__,_|_|  |____/ \___| \_/ |___/ `)
+    console.log(String.raw`====================================== `)
     const cmds = []
     readdirSync("./commands/").forEach(dir => {
        var cmdFiles = readdirSync(`./commands/${dir}/`)
