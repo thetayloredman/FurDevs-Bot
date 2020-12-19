@@ -11,10 +11,10 @@ const port = process.env.PORT
 const routes = require("./routes")
 
 
-module.exports = async(client) => {
+module.exports = async (client) => {
 
     mongoose.connect(`${process.env.DB}`, {
-        useNewUrlParser:true, 
+        useNewUrlParser: true,
         useUnifiedTopology: true
     })
     app.use(cors({
@@ -23,12 +23,14 @@ module.exports = async(client) => {
     }))
     app.use(session({
         secret: process.env.CLIENTSECRET,
-        cookie:{
+        cookie: {
             maxAge: 60000 * 60 * 24
         },
         resave: false,
         saveUninitialized: false,
-        store: new Store({ mongooseConnection: mongoose.connection })
+        store: new Store({
+            mongooseConnection: mongoose.connection
+        })
     }))
     app.use(passport.initialize())
     app.use(passport.session())
