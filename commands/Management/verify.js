@@ -39,9 +39,9 @@ exports.run = async (client, message, args) => {
                 `Verificaton Command - Responsible: ${message.author.tag}`
             );
             message.channel.send(
-                `${member} is now verified for \`${message.guild.name}\` Please Give them a warm welcome in the General Chat!${message.guild.id === "778333835967594517" ? "Here's a little copy and paste" : ""}`
+                `${member} is now verified for \`${message.guild.name}\` Please Give them a warm welcome in the General Chat!${message.guild.id === "731520035717251142" ? "Here's a little copy and paste" : ""}`
             );
-            if(message.guild.id === "778333835967594517"){
+            if(message.guild.id === "731520035717251142"){
                 // THIS IS TEMPORARY!
                 message.channel.send(`\`\`\`Salutations and welcome to **FurDevs**, ${member}!
                 
