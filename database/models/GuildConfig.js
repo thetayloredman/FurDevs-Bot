@@ -39,6 +39,14 @@ const GuildConfig = new mongoose.Schema({
       type: mongoose.SchemaTypes.String,
       default: null,
     },
+    staffMembers: {
+      type: Array,
+      default: null,
+    },
+    welcomeMessage:{
+      type: String,
+      default: null
+    },
 
 
   

@@ -1,4 +1,5 @@
 const { Client, Collection, Structures } = require("discord.js");
+const chalk = require('chalk')
 const { readdirSync } = require("fs")
 require("dotenv").config();
 require("./structures/Guild")
@@ -9,6 +10,11 @@ const client = new Client({ disableMentions: "everyone" })
 const { load } = require("./utils/utils")
 client.commands = new Collection();
 client.aliases = new Collection();
+
+// Console Chalk
+client.fdevsLog = `${chalk.cyanBright('[FurDevs - Log]')}` 
+client.fdevsError = `${chalk.redBright('[FurDevs - Error]')}` 
+client.fwebsLog = `${chalk.greenBright('[FurDevs Web - Log]')}` 
 
 const mongoose = require("mongoose");
 
@@ -29,7 +35,7 @@ const init = async () => {
     const cmds = []
     readdirSync("./commands/").forEach(dir => {
        var cmdFiles = readdirSync(`./commands/${dir}/`)
-        console.log(`Loading ${dir} Module Which Contains ${cmdFiles.length} commands.`);
+        console.log(`${client.fdevsLog} Loading ${dir} Module Which Contains ${cmdFiles.length} commands.`);
         cmdFiles.forEach(cmd => {
             if (!cmd.endsWith(".js")) return;
             const response = load(client, dir, cmd);
@@ -38,10 +44,10 @@ const init = async () => {
         });
     })
     console.log('==================================')
-    console.log(`Loaded a total ${cmds.length} Commands!`)
+    console.log(`${client.fdevsLog} Loaded a total ${cmds.length} Commands!`)
 
     const evtFiles = await readdirSync("./events/");
-    console.log(`Loading a total of ${evtFiles.length} events.`);
+    console.log(`${client.fdevsLog} Loading a total of ${evtFiles.length} events.`);
     evtFiles.forEach(evt => {
         const eventName = evt.split(".")[0];
         const event = require(`./events/${evt}`);

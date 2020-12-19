@@ -12,7 +12,7 @@ module.exports = async (client, message) => {
 
 
     var GuildConfig = await message.guild.settings()
-    var { defaultPrefix } = require("../settings.json")
+    var { errorLogChannel } = require("../settings.json")
     var command;
     var commandParts;
     
@@ -53,9 +53,20 @@ module.exports = async (client, message) => {
                 return console.log(`Discord: Command Invalid: ${command} by ${message.author.tag}`)
             }else{
                 try{
-                    await cmd.run(client, message, commandParts);
+                        await cmd.run(client, message, commandParts);
                 }catch (e) {
-                    console.log(`Discord: ${command} was executed but failed with an error; ${e}`)
+                    try{
+                        const errorMessage = new MessageEmbed()
+                        .setTitle("❌ An Error has Occured!")
+                        .setDescription(`\`${command}\` failed to execute with this error \n\n${e.message}\n\u200b`)
+                        .setColor("#ee110f")
+                        client.channels.cache.get(errorLogChannel).send(errorMessage).then((msg) => {
+                        console.log(`${client.fdevsError}: ${command} was executed but failed with an error;\n${msg.url}`)
+                    })
+                }catch{
+                        console.log(`${client.fdevsError}: ${command} was executed but failed with an error;\n${e}`)
+                        return;
+                    }
                     const errorMessage = new MessageEmbed()
                         .setTitle("❌ An Error has Occured!")
                         .setDescription(`${e.message}\n\u200b`)
