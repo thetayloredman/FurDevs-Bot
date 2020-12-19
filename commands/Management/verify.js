@@ -43,7 +43,7 @@ exports.run = async (client, message, args) => {
             );
             if(message.guild.id === "731520035717251142"){
                 // THIS IS TEMPORARY!
-                message.channel.send(`\`\`\`Salutations and welcome to **FurDevs**, ${member}!
+                message.channel.send(`\`\`\`[ <@&789620311107567646> ]\n\nSalutations and welcome to **FurDevs**, ${member}!
                 
 **Here are a few things you need to know to get started:**
                 > • <#731523544596480091> - Please read our regulations at the very top so you can know know the important information about our server such as rules for asking programming-related questions as well as how to contact staff.
