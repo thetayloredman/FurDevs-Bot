@@ -1,44 +1,64 @@
 const mongoose = require("mongoose")
 
 const MembersConfig = new mongoose.Schema({
-    guildID:{
-        type: mongoose.SchemaTypes.String,
-        required: true,
-    },
-    userID:{
-        type: mongoose.SchemaTypes.String,
-        required: true,
-    },
-    roles: {
-        type: mongoose.SchemaTypes.Array,
-      },
+  guildID: {
+    type: String,
+    required: true,
+  },
+  userID: {
+    type: String,
+    required: true,
+  },
 
-  
-      /*
-        CHANNELS
-        NOTE: Update commands/channel when you change these attributes!
-        */
+  XP: {
+    type: Number,
+    default: 0
+  },
 
-  
-      XP: {
-        type: mongoose.SchemaTypes.Number,
-        default: 0
-      },
-  
-      coins: {
-        type: mongoose.SchemaTypes.Number,
-        default: 0,
-      },
+  coins: {
+    type: Number,
+    default: 0,
+  },
 
-      reps: {
-        type: mongoose.SchemaTypes.Number,
-        default: 0,
-      },
+  reps: {
+    type: Number,
+    default: 0,
+  },
 
-      level: {
-        type: mongoose.SchemaTypes.Number,
-        default: 0,
-      }
+  level: {
+    type: Number,
+    default: 0,
+  },
+
+  roles: {
+    type: Array,
+    default: []
+  },
+
+  spamScoreFast: {
+    type: Number,
+    default: 0
+  },
+
+  spamScoreSlow: {
+    type: Number,
+    default: 0,
+  },
+
+  spamScoreStamp: {
+    type: String,
+    default: moment().toISOString(true),
+  },
+
+  muted: {
+    type: Boolean,
+    default: false
+  },
+
+  notes: {
+    type: Array,
+    default: []
+  }
 })
 
 module.exports = mongoose.model("MembersConfig", MembersConfig)
