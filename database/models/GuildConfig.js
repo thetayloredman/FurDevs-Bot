@@ -4,61 +4,61 @@ const GuildConfig = new mongoose.Schema({
   /*
     Guild Settings
   */
-    guildID:{
-        type: mongoose.SchemaTypes.String,
-        required: true,
-        unique: true 
-    },
-    prefix:{
-        type: mongoose.SchemaTypes.String,
-        required: true, 
-        default:">"
-    },
+  guildID: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  prefix: {
+    type: String,
+    required: true,
+    default: ">"
+  },
 
-    disabledCommands: {
-        type: mongoose.SchemaTypes.Array,
-        required: true, 
-    },
+  disabledCommands: {
+    type: Array,
+    required: true,
+  },
 
-    bankerRole: {
-      type: mongoose.SchemaTypes.String,
-      default: null,
-    },
+  bankerRole: {
+    type: String,
+    default: null,
+  },
 
-    verificationRole: {
-      type: mongoose.SchemaTypes.String,
-      default: null,
-    },
+  verificationRole: {
+    type: String,
+    default: null,
+  },
 
-    verificationLogging: {
-      type: mongoose.SchemaTypes.String,
-      default: null,
-    },
-    
-    bumpingChannel: {
-      type: mongoose.SchemaTypes.String,
-      default: null,
-    },
-    staffMembers: {
-      type: Array,
-      default: null,
-    },
-    welcomeMessage:{
-      type: String,
-      default: null
-    },
+  verificationLogging: {
+    type: String,
+    default: null,
+  },
+
+  bumpingChannel: {
+    type: String,
+    default: null,
+  },
+  staffMembers: {
+    type: Array,
+    default: null,
+  },
+  welcomeMessage: {
+    type: String,
+    default: null
+  },
 
 
-  
-    /*
-      FEATURES
-    */
-  
-   reputationSystem: {
-    type: mongoose.SchemaTypes.Boolean,
+
+  /*
+    FEATURES
+  */
+
+  reputationSystem: {
+    type: Boolean,
     default: false,
-  },     
-  
+  },
+
 })
 
 module.exports = mongoose.model("GuildConfig", GuildConfig)
