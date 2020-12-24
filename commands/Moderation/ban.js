@@ -7,7 +7,9 @@ const {
 const {
     send
 } = require("../../utils/guild");
-const { MessageEmbed } = require('discord.js')
+const {
+    MessageEmbed
+} = require('discord.js')
 
 exports.run = async (client, message, args) => {
     await message.delete();
@@ -47,7 +49,14 @@ exports.run = async (client, message, args) => {
     message.channel.send({
         embed,
     });
-    const public = `===========================\nResponsible Moderator: ${message.author.username}\n\n${vUser.username} has been banned from ${message.guild.name} for \`${reason}\`\n==========================`
+    const public = new MessageEmbed()
+        .setTitle("Public Mod Logs")
+        .setColor("#8800FF")
+        .setDescription(`**${vUser.username}** has been Kicked from ${message.guild.name}`)
+        .addField('User', `${vUser.username}(${vUser.id})`)
+        .addField('Responsible Staff Member', `${message.author}(${message.author.id})`)
+        .addField("Reason", `${reason}`)
+        .setTimestamp()
     await send("publicModLogs", message.guild, public)
 };
 
