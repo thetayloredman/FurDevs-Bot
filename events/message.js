@@ -1,4 +1,6 @@
-const { MessageEmbed } = require("discord.js")
+const {
+    MessageEmbed
+} = require("discord.js")
 
 module.exports = async (client, message) => {
     if (message.author && message.author.id === client.user.id) return;
@@ -12,21 +14,23 @@ module.exports = async (client, message) => {
 
 
     var GuildConfig = await message.guild.settings()
-    var { errorLogChannel } = require("../settings.json")
+    var {
+        errorLogChannel
+    } = require("../settings.json")
     var command;
     var commandParts;
-    
+
     // If the user pings the bot the bot will respond with it's prefix
     const mentionRegex = RegExp(`^<@!${client.user.id}>$`);
     const mentionRegexPrefix = RegExp(`^<@!${client.user.id}> `);
     if (message.content.match(mentionRegex)) {
         return message.channel.send(`Heya ${message.author}! My Prefix is \`${GuildConfig.prefix}\``);
     }
-    
-    var prefix =  message.content.match(mentionRegexPrefix) ? message.content.match(mentionRegexPrefix)[0] : GuildConfig.prefix;
+
+    var prefix = message.content.match(mentionRegexPrefix) ? message.content.match(mentionRegexPrefix)[0] : GuildConfig.prefix;
     // Is a command by a guild member who is not a bot? If so execute it
-    if(message.content.startsWith(prefix)){
-        if(message.member && message.author && !message.author.bot){
+    if (message.content.startsWith(prefix)) {
+        if (message.member && message.author && !message.author.bot) {
             commandParts = message.content.slice(prefix.length).trim().split(/ +/g);
             const command = commandParts.shift().toLowerCase();
             const cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command));
@@ -51,19 +55,21 @@ module.exports = async (client, message) => {
                 //     .send(errorMessage)
                 //     .then((a) => a.delete({ timeout: 15000 }));
                 return console.log(`Discord: Command Invalid: ${command} by ${message.author.tag}`)
-            }else{
-                try{
-                        await cmd.run(client, message, commandParts);
-                }catch (e) {
-                    try{
+            } else {
+                try {
+                    await cmd.run(client, message, commandParts);
+                } catch (e) {
+                    try {
                         const errorMessage = new MessageEmbed()
-                        .setTitle("❌ An Error has Occured!")
-                        .setDescription(`\`${command}\` failed to execute with this error \n\n${e.message}\n\u200b`)
-                        .setColor("#ee110f")
-                        client.channels.cache.get(errorLogChannel).send(errorMessage).then((msg) => {
-                        console.log(`${client.fdevsError}: ${command} was executed but failed with an error;\n${msg.url}`)
-                    })
-                }catch{
+                            .setTitle("❌ An Error has Occured!")
+                            .setThumbnail(
+                                `https://cdn.discordapp.com/emojis/604486986170105866.png?v=1`
+                            )
+                            .setDescription(`\`${command}\` failed to execute with this error \n\n${e.message}\n\u200b`)
+                            .setColor("#ee110f")
+                        console.log(`${client.fdevsError}: ${command} was executed but failed with an error;\n${e}`)
+                        return message.channel.send(errorMessage)
+                    } catch {
                         console.log(`${client.fdevsError}: ${command} was executed but failed with an error;\n${e}`)
                         return;
                     }
@@ -78,11 +84,14 @@ module.exports = async (client, message) => {
                     // TODO: Error Messages with GIFs/Images if a Link exist
                     message.channel
                         .send(errorMessage)
-                        .then((a) => a.delete({ timeout: 15000 }))
+                        .then((a) => a.delete({
+                            timeout: 15000
+                        }))
                     console.log(e)
                 }
             }
             console.log(`Discord: Command Executed: ${command} by ${message.author.tag}`)
 
         }
-    }};
+    }
+};

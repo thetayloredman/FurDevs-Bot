@@ -59,6 +59,11 @@ const GuildConfig = new mongoose.Schema({
     default: false,
   },
 
+  publicModLogs: {
+    type: String,
+    default: false,
+  },
+
 })
 
 module.exports = mongoose.model("GuildConfig", GuildConfig)
