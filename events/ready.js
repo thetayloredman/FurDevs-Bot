@@ -120,6 +120,5 @@ module.exports = async (client) => {
   fourHours.start();
   discordme.start();
   console.log(`${client.fdevsLog} Bump Reminders Started!`);
-  require("./../dashboard/server")(client);
-  console.debug(`${client.fdevsLog} ${client.user.username} is Ready!`);
+  console.log(`${client.fdevsLog} ${client.user.username} is Ready!`);
 };
