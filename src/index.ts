@@ -1,20 +1,23 @@
-const { Client, Collection, Structures } = require("discord.js");
-const chalk = require('chalk')
-const { readdirSync } = require("fs")
+// Ok drago I gtg for now, however the index is now ts
+import { Client, Collection, Structures } from 'discord.js';
+import * as chalk from 'chalk';
+import { readdirSync } from 'fs';
 require("dotenv").config();
 require("./structures/Guild")
 require("./structures/User")
 require("./structures/GuildMember")
 
-const client = new Client({ disableMentions: "everyone" })
-const { load } = require("./utils/utils")
-client.commands = new Collection();
-client.aliases = new Collection();
+class FDClient extends Client implements Client {
+    public commands: Collection<unknown, unknown> = new Collection();
+    public aliases: Collection<unknown, unknown> = new Collection();
 
-// Console Chalk
-client.fdevsLog = `${chalk.cyanBright('[FurDevs - Log]')}` 
-client.fdevsError = `${chalk.redBright('[FurDevs - Error]')}` 
-client.fwebsLog = `${chalk.greenBright('[FurDevs Web - Log]')}` 
+    public fdevsLog: string = `${chalk.cyanBright('[FurDevs - Log]')}`
+    public fdevsError: string = `${chalk.redBright('[FurDevs - Error]')}`
+    public fwebsLog: string = `${chalk.greenBright('[FurDevs Web - Log]')}` 
+}
+
+const client = new FDClient({ disableMentions: "everyone" })
+const { load } = require("./utils/utils")
 
 const mongoose = require("mongoose");
 
@@ -46,7 +49,7 @@ const init = async () => {
     console.log('==================================')
     console.log(`${client.fdevsLog} Loaded a total ${cmds.length} Commands!`)
 
-    const evtFiles = await readdirSync("./events/");
+    const evtFiles = <string[]>await readdirSync("./events/");
     console.log(`${client.fdevsLog} Loading a total of ${evtFiles.length} events.`);
     evtFiles.forEach(evt => {
         const eventName = evt.split(".")[0];
