@@ -11,7 +11,11 @@ exports.run = async (client, message, args) => {
         {
             names: ['BadBoyHaloCat#1826'],
             contributions: 'Added tail command and gave helpful advice on the development of new commands'
-        }
+        },
+        {
+          names: ['EchoLynx#9744'],
+          contributions: 'Updating the README providing a details on how to get the bot running'
+      }
       /**
        * Example below here
        */
