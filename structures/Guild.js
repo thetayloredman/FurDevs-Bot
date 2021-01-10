@@ -1,5 +1,6 @@
 const { Structures } = require("discord.js");
 const GuildsConfig = require("./../database/models/GuildConfig");
+const MembersConfig = require("./../database/models/MembersConfig");
 
 // Guilds
 Structures.extend("Guild", (Guild) => {
@@ -63,6 +64,18 @@ Structures.extend("Guild", (Guild) => {
             "```"
         );
       }
+    }
+
+    /**
+     * Get the total amount of money from the Guild
+     */
+    async getMoneyAll() {
+      let docs = await MembersConfig.find({}, "coins bankCoins").exec();
+      let bal = 0;
+      docs.forEach(doc => {
+        bal += doc.coins + doc.bankCoins;
+      });
+      return bal;
     }
   }
 

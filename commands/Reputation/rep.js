@@ -30,6 +30,6 @@ exports.run = async (client, message, args) => {
 exports.help = {
   name: "rep",
   description: "Rep Someone!",
-  usage: "< Username | ID | Metion >",
+  usage: "< Username | ID | Mention >",
   aliases: [""],
 };
