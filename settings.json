@@ -3,5 +3,6 @@
     "defaultPrefix": ">",
     "whitelistedGuilds":["731520035717251142", "778333835967594517"],
     "errorLogChannel": "789637133878296576",
-    "verificationLogs":"742414095957098631"
+    "verificationLogs":"742414095957098631",
+    "currency": "Fur"
 }
