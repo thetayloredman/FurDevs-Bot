@@ -61,7 +61,7 @@ module.exports = async (client, message) => {
     }
 
     // Money generation
-    if(!timeout.includes(message.author.id) && client.coinDropArray.length > 0) {
+    if(!timeoutBalance.has(message.author.id) && client.coinDropArray.length > 0) {
         let balanceAdd = Math.floor(Math.random() * client.coinDropArray.length);
         message.member.add(client.coinDropArray[balanceAdd]);
         timeoutBalance.add(message.author.id);
