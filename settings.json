@@ -4,5 +4,6 @@
     "whitelistedGuilds":["731520035717251142", "778333835967594517"],
     "errorLogChannel": "789637133878296576",
     "verificationLogs":"742414095957098631",
-    "currency": "Fur"
+    "currency": "Fur",
+    "coinDropProbability": {"10": 2, "9": 4, "8": 5, "7": 7, "6": 9, "5": 11, "4": 13, "3": 15, "2": 16, "1": 18}
 }

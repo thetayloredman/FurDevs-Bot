@@ -54,6 +54,19 @@ const init = async () => {
         client.on(eventName, event.bind(null, client));
     });
 
+    
+
+    // Create Probability array for Coin drop
+    const settings = require("./settings.json");
+    let probabilityArray = [];
+    for(let key in settings.coinDropProbability) {
+        for(let i = 0; i < settings.coinDropProbability[key]; i++) {
+            probabilityArray.push(Number(key));
+        }
+    }
+    client.coinDropArray = probabilityArray;
+    
+
     client.login(process.env.TOKEN);
 
 };

@@ -1,7 +1,10 @@
+const { timeout } = require("cron");
 const {
     MessageEmbed
 } = require("discord.js")
 const MembersConfig = require('./../database/models/MembersConfig')
+
+let timeoutBalance = new Set();
 
 
 module.exports = async (client, message) => {
@@ -57,6 +60,14 @@ module.exports = async (client, message) => {
         
     }
 
+    // Money generation
+    if(!timeout.includes(message.author.id) && client.coinDropArray.length > 0) {
+        let balanceAdd = Math.floor(Math.random() * client.coinDropArray.length);
+        message.member.add(client.coinDropArray[balanceAdd]);
+        timeoutBalance.add(message.author.id);
+        setTimeout(() => timeoutBalance.delete(message.author.id), 60000);
+    }
+
     // If the user pings the bot the bot will respond with it's prefix
     const mentionRegex = RegExp(`^<@!${client.user.id}>$`);
     const mentionRegexPrefix = RegExp(`^<@!${client.user.id}> `);
@@ -98,3 +109,4 @@ module.exports = async (client, message) => {
         }
     }
 };
+
