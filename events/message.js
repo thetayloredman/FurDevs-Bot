@@ -23,8 +23,15 @@ module.exports = async (client, message) => {
     var commandParts;
 
     console.log(message.content)
-    if(message.content.toLowerCase().includes("thanks") && message.mentions.members.first()){
-        let msg = await message.channel.send("Would you like to give a rep to this user")
+    if(message.content.toLowerCase().includes("thank") && message.mentions.members.first()){
+        const user = message.mentions.users.first()
+        const settings = await message.guild.members.cache.get(user.id).settings();
+        if(user.id === message.author.id){
+            return message.channel.send("https://cdn.discordapp.com/attachments/731523552636829697/797940845496107018/cover1.png\n\n⬇️ This is you")
+        }else if(user.bot){
+            return message.channel.send("https://thumbs.dreamstime.com/z/d-robot-wins-gold-cup-trophy-render-holding-66567644.jpg\n\nThe Bot Appreciates it's success")
+        }
+        let msg = await message.channel.send(`Would you like to give a rep \`${user.username}\``)
         await msg.react("✅")
         await msg.react("❌")
         let collected = await msg.awaitReactions((r, u) => r.emoji.name == "✅" || r.emoji.name == "❌" && u.id == message.author.id, {
@@ -36,8 +43,6 @@ module.exports = async (client, message) => {
             const reaction = collected.first()
             switch(reaction.emoji.name){
                 case '✅':
-                    const user = message.mentions.users.first()
-                    const settings = await message.guild.members.cache.get(user.id).settings();
                     let newReps = settings.reps+ 1
                     console.log(newReps)
                     await MembersConfig.updateOne({
