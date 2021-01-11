@@ -1,4 +1,3 @@
-const { timeout } = require("cron");
 const {
     MessageEmbed
 } = require("discord.js")
