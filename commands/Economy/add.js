@@ -4,7 +4,7 @@ const BotSettings = require("./../../settings.json");
 
 exports.run = async (client, message, args) => {
   await message.delete();
-  if(!message.member.roles.cache.has(message.guild.settings().bankerRole)) throw new Error("You need to have a Banker Role, to be able to execute this command!");
+  if(message.member.roles.cache.has(message.guild.settings().bankerRole === false)) throw new Error("You need to have a Banker Role, to be able to execute this command!");
   if(!args[0]) throw new Error("Please specify a user by providing the name, mention, or userID of that user ");
   if(!args[1] || isNaN(args[1])) throw new Error("Please specify an amount!");
   const user = await usernameResolver(message, args[0]);
