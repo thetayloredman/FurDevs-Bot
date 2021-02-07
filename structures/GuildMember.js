@@ -86,8 +86,9 @@ Structures.extend("GuildMember", (GuildMember) => {
      * @param {Number} amount 
      */
     async add(amount) {
+      console.log(amount)
       if(isNaN(amount)) throw new Error("argument amount must be of type Number");
-      let settings = this.settings();
+      let settings = await this.settings();
       await MembersConfig.updateOne({
         _id: settings._id
       }, {
