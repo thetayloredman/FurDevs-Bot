@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
       .setTitle('Kiss')
       .setColor('#8800FF')
       .setDescription(`
-      ${message.author} Somehow Kissed themselves...
+      ${message.author} Somehow kissed themselves...
       `)
       .setTimestamp()
       .setFooter(`User ID: ${message.author.id}`)
@@ -42,7 +42,7 @@ exports.run = async (client, message, args) => {
       .setTitle('Kiss')
       .setColor('#8800FF')
       .setDescription(`
-      ${message.author} Somehow Kissed themselves...
+      ${message.author} Somehow kissed themselves...
       `)
       .setTimestamp()
       .setFooter(`User ID: ${message.author.id}`)
