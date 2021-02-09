@@ -40,7 +40,7 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
   name: 'affectattack',
-  description: 'Attack somone with affection!',
+  description: 'Attack someone with affection!',
   usage: '[ Mention ]',
   aliases: ['affection', 'affect', 'attack']
 }
