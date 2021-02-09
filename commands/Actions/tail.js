@@ -23,7 +23,7 @@ const {
     if (affected.length >= 1) {
       const embed = new MessageEmbed()
         .setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL({ dynamic: true })}`)
-        .setTitle('Hit by a thick tail! Ouch')
+        .setTitle('Hit by a thick tail! Ouch~')
         .setColor('#8800FF')
         .setDescription(`
           ${affected.join(', ')} got hit by ${message.author}'s tail **OUCH!**
@@ -39,7 +39,7 @@ const {
   
   exports.help = {
     name: 'tail',
-    description: "Don't make Server Son mad >:O.",
+    description: "Don't make Server Son mad >:O",
     usage: '[ Mention ]',
     aliases: []
   }
