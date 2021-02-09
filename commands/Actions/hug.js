@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
     affected = []
     message.mentions.users.map(user => {
       if (message.author === user || affected.includes(user)) {
-        // Do Nothing...
+        // Do nothing...
       } else {
         affected.push(user)
       }
@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
       .setTitle('Hug?')
       .setColor('#8800FF')
       .setDescription(`
-      ${message.author} Hug themselves... Poor Dude aye yo someone hug this person :C
+      ${message.author} Hugs themselves... Poor dude aye yo someone hug this person :C
       `)
       .setTimestamp()
       .setFooter(`User ID: ${message.author.id}`)
@@ -45,7 +45,7 @@ exports.run = async (client, message, args) => {
       .setTitle('Hug?')
       .setColor('#8800FF')
       .setDescription(`
-      ${message.author} Hug themselves... Poor Dude aye yo someone hug this person :C
+      ${message.author} Hugs themselves... Poor dude aye yo someone hug this person :C
       `)
       .setTimestamp()
       .setFooter(`User ID: ${message.author.id}`)
