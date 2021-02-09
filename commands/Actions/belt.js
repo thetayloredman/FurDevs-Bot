@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
       }
     })
   } else {
-    throw new Error('Who will be the person you want to hit with the belt!')
+    throw new Error('Who will be the person you want to hit with the belt?')
   }
 
   if (affected.length >= 1) {
@@ -32,14 +32,14 @@ exports.run = async (client, message, args) => {
       .setFooter(`User ID: ${message.author.id}`)
     return message.channel.send(embed)
   } else {
-    throw new Error('Who will be the person you want to hit with the belt!')
+    throw new Error('Who will be the person you want to hit with the belt?')
   }
 
 }
 
 exports.help = {
   name: 'belt',
-  description: "Don't make Server Mommy disappointed >:O.",
+  description: "Don't make Server Mommy disappointed >:O",
   usage: '[ Mention ]',
   aliases: []
 }
