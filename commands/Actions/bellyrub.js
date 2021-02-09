@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
       .setTitle('Bellyrub Yourself?')
       .setColor('#8800FF')
       .setDescription(`
-        ${message.author} belly rubbed their own belly qwq
+        ${message.author} rubbed their own belly qwq
         `)
       .setTimestamp()
       .setImage('https://media.giphy.com/media/gCANwADwdazG8/giphy.gif')
@@ -35,7 +35,7 @@ exports.run = async (client, message, args) => {
       .setTitle('Belly Rubs!')
       .setColor('#8800FF')
       .setDescription(`
-       ${message.author} belly rubbed ${affected.join(', ')}'s ${affected.includes(client.user) ? 'uwu' : "Dann, y'all should count me in owo"}
+       ${message.author} belly rubbed ${affected.join(', ')}'s ${affected.includes(client.user) ? 'uwu' : "Damn, y'all should count me in owo"}
       `)
       .setTimestamp()
       .setFooter(`User ID: ${message.author.id}`)
@@ -48,7 +48,7 @@ exports.run = async (client, message, args) => {
       .setTitle('Belly Rub Yourself?')
       .setColor('#8800FF')
       .setDescription(`
-        ${message.author} belly rubbed their own belly qwq
+        ${message.author} rubbed their own belly qwq
         `)
       .setTimestamp()
       .setImage('https://media.giphy.com/media/gCANwADwdazG8/giphy.gif')
@@ -60,7 +60,7 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
   name: 'bellyrub',
-  description: 'Rubs someone belly!',
+  description: "Rub someone's belly!",
   usage: '[ Mention ]',
   aliases: []
 }
