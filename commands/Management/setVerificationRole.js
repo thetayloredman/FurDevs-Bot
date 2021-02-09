@@ -1,11 +1,7 @@
-const Discord = require("discord.js");
-const {
-    checkBotOwner
-} = require("../../utils/permissions");
-const GuildConfig = require("../../database/models/GuildConfig");
-const {
-    roleResolver
-} = require("./../../utils/resolvers/role");
+const Discord = require('discord.js');
+const { checkBotOwner } = require('../../utils/permissions');
+const GuildConfig = require('../../database/models/GuildConfig');
+const { roleResolver } = require('./../../utils/resolvers/role');
 
 exports.run = async (client, message, args) => {
     // Delete the original command message
@@ -19,18 +15,18 @@ exports.run = async (client, message, args) => {
         // This command may only be used by the bot owner
 
         // Update the prefix in the database
-        await GuildConfig.updateOne({
-            guildID: message.guild.id
-        }, {
-            verificationRole: role.id
-        });
+        await GuildConfig.updateOne(
+            {
+                guildID: message.guild.id
+            },
+            {
+                verificationRole: role.id
+            }
+        );
 
         // Return message
         const embed = new Discord.MessageEmbed()
-            .setAuthor(
-                `${message.author.tag}`,
-                `${message.author.displayAvatarURL({ dynamic: true })}`
-            )
+            .setAuthor(`${message.author.tag}`, `${message.author.displayAvatarURL({ dynamic: true })}`)
             .setTitle(`Verification - The Role is Updated!`)
             .setDescription(`The role is now ${role}`)
             .setTimestamp()
@@ -41,10 +37,7 @@ exports.run = async (client, message, args) => {
     if (!role) {
         var GuildSettings = await message.guild.settings();
         const embed = new Discord.MessageEmbed()
-            .setAuthor(
-                `${message.author.tag}`,
-                `${message.author.displayAvatarURL({ dynamic: true })}`
-            )
+            .setAuthor(`${message.author.tag}`, `${message.author.displayAvatarURL({ dynamic: true })}`)
             .setTitle(`Verification - Current Role!`)
             .setDescription(
                 `The Current Verified Role set for this Verification is <@&${GuildSettings.verificationRole}>\n\nIf you wish to change that role you can do \n\`${GuildSettings.prefix}setVerificationRole < Mention Role >\``
@@ -56,8 +49,8 @@ exports.run = async (client, message, args) => {
     }
 };
 exports.help = {
-    name: "setverificationrole",
-    description: "Change the role that members will get if you execute the verify command on that member.",
-    usage: "[ Role Mention ]",
-    aliases: ["verifyrole"],
+    name: 'setverificationrole',
+    description: 'Change the role that members will get if you execute the verify command on that member.',
+    usage: '[ Role Mention ]',
+    aliases: ['verifyrole']
 };

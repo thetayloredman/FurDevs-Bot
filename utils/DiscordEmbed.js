@@ -5,7 +5,7 @@ module.exports = class DiscordMenu {
         pages = [],
         messages = [],
         time = 180000,
-        reactions = { first: "⏮️", back: "◀", next: "▶", last: "⏭️", stop: "⏹" }
+        reactions = { first: '⏮️', back: '◀', next: '▶', last: '⏭️', stop: '⏹' }
     ) {
         this.channel = channel;
         this.pages = pages;
@@ -24,12 +24,9 @@ module.exports = class DiscordMenu {
         this.msg.edit(this.pages[pg - 1]);
     }
     createReactionCollector(uid) {
-        let reactionCollector = this.msg.createReactionCollector(
-            (r, u) => u.id == uid,
-            { time: this.time }
-        );
+        let reactionCollector = this.msg.createReactionCollector((r, u) => u.id == uid, { time: this.time });
         this.reactionCollector = reactionCollector;
-        reactionCollector.on("collect", (r) => {
+        reactionCollector.on('collect', (r) => {
             if (r.emoji.name == this.reactions.first) {
                 if (this.page != 1) this.select(1);
             } else if (r.emoji.name == this.reactions.back) {
@@ -43,20 +40,19 @@ module.exports = class DiscordMenu {
             }
             r.users.remove(uid);
         });
-        reactionCollector.on("end", () => {
+        reactionCollector.on('end', () => {
             this.endCollection();
         });
     }
 
     async endCollection() {
-        this.msg.delete().catch(error => {
+        this.msg.delete().catch((error) => {
             // Only log the error if it is not an Unknown Message error
             if (error.code !== 10008) {
                 sails.log.error('Failed to delete the message:', error);
             }
         });
-        if (this.reactionCollector && !this.reactionCollector.ended)
-            this.reactionCollector.stop();
+        if (this.reactionCollector && !this.reactionCollector.ended) this.reactionCollector.stop();
     }
 
     async addReactions() {

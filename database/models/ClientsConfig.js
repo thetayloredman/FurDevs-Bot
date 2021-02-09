@@ -1,6 +1,5 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose');
 const ClientsConfig = new mongoose.Schema({
-
     id: {
         type: Number,
         required: true
@@ -13,8 +12,7 @@ const ClientsConfig = new mongoose.Schema({
     maintenanceMode: {
         type: Boolean,
         default: false
-    },
+    }
+});
 
-})
-
-module.exports = mongoose.model("ClientsConfig", ClientsConfig)
+module.exports = mongoose.model('ClientsConfig', ClientsConfig);

@@ -1,4 +1,3 @@
-
 <div align="center">
 <h1> FurDevs Discord Bot</h1>
 <img alt="FurDevs-Logo" src="https://www.furdevs.com/images/picture.png" />
@@ -8,7 +7,7 @@
 
 ## About
 
-FurDevs Discord Bot is a Multipurpose Discord Bot  for the [FurDevs Discord Server](https://discord.gg/JABY6Htnqt)
+FurDevs Discord Bot is a Multipurpose Discord Bot for the [FurDevs Discord Server](https://discord.gg/JABY6Htnqt)
 
 ## Quick Start
 
@@ -16,11 +15,11 @@ This section is for you if you're already familiar with discord bots in general.
 
 To use the FurDevs Discord Bot on your server, you'll need:
 
-- Git, NPM or Yarn, and Node.js
-- A Discord account
-- MongoDB Account, and a database for FurDevs
-- An application for the bot (Make this in the [Discord Developer Portal](https://discord.com/developers/applications))
-- Common Sense ( Don't leak the bot token )
+-   Git, NPM or Yarn, and Node.js
+-   A Discord account
+-   MongoDB Account, and a database for FurDevs
+-   An application for the bot (Make this in the [Discord Developer Portal](https://discord.com/developers/applications))
+-   Common Sense ( Don't leak the bot token )
 
 Once you have all the dependencies:
 
@@ -49,9 +48,9 @@ To add the FurDevs Discord Bot to a server, you'll have to:
 
 To run the FurDevs Discord Bot on your computer, you'll need to install the following if they're not on your Windows 10 system already. Some have lots of options in the installation process - just accept all the defaults and click next until the installation is complete and you should be fine.
 
-- [Git](https://git-scm.com/download/win)
-- [Node.js](https://nodejs.org/en/download/current/)
-- [MongoDB Community](https://www.mongodb.com/try/download/community)
+-   [Git](https://git-scm.com/download/win)
+-   [Node.js](https://nodejs.org/en/download/current/)
+-   [MongoDB Community](https://www.mongodb.com/try/download/community)
 
 #### MongoDB Community Installation Notes
 
