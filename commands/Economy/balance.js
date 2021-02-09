@@ -7,10 +7,11 @@ exports.run = async (client, message, args) => {
 
 
   if(!args[0]) {
+      const settings = await message.member.settings()
     const embed = new MessageEmbed()
     .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
-    .setTitle(`pockets of ${message.author.username}!`)
-    .setDescription(`You currently have ${message.member.settings().coins} ${BotSettings.currency}`)
+    .setTitle(`${message.author.username}'s Pockets!`)
+    .setDescription(`You currently have ${settings.coins} ${BotSettings.currency}`)
     .setColor(`#8800FF`);
     message.channel.send(embed);
   }else {
