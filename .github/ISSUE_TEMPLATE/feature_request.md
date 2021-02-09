@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: "[Feature Request] : Placeholder"
+title: "feat: (describe your feature request...)"
 labels: enhancement
 assignees: DeveloperVulpo
 

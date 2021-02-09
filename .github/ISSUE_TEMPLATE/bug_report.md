@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Report a bug here!
-title: ''
+title: 'bug: (describe the bug...)'
 labels: bug, HIGH PRIORITY!!!
 assignees: DeveloperVulpo
 
