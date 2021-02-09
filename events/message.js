@@ -18,7 +18,6 @@ module.exports = async (client, message) => {
   var command;
   var commandParts;
 
-  console.log(message.content);
   if (
     message.content.toLowerCase().includes("thank") &&
     message.mentions.members.first()

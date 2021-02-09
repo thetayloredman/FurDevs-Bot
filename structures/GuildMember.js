@@ -48,7 +48,7 @@ Structures.extend("GuildMember", (GuildMember) => {
      */
     async remove(amount) {
       if(isNaN(amount)) throw new Error("argument amount must be of type Number");
-      let settings = this.settings();
+      let settings = await this.settings();
       if(amount <= settings.coins) {
         await MembersConfig.updateOne({
           _id: settings._id
@@ -68,7 +68,7 @@ Structures.extend("GuildMember", (GuildMember) => {
      */
     async removeBank(amount) {
       if(isNaN(amount)) throw new Error("argument amount must be of type Number");
-      let settings = this.settings();
+      let settings = await this.settings();
       if(amount <= settings.bankCoins) {
         await MembersConfig.updateOne({
           _id: settings._id
@@ -86,7 +86,6 @@ Structures.extend("GuildMember", (GuildMember) => {
      * @param {Number} amount 
      */
     async add(amount) {
-      console.log(amount)
       if(isNaN(amount)) throw new Error("argument amount must be of type Number");
       let settings = await this.settings();
       await MembersConfig.updateOne({
