@@ -11,7 +11,7 @@ module.exports = async (client) => {
   console.log("==================================");
 
   var twoHours = new CronJob(
-    "00 00 2,6,10,14,18,22 * * *",
+    "00 00 2,4,6,8,10,12,14,16,18,20,22 * * *",
     async function () {
       const guild = client.guilds.cache.get("731520035717251142");
       const setting = await guild.settings();
