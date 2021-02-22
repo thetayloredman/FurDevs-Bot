@@ -64,63 +64,59 @@ Structures.extend('GuildMember', (GuildMember) => {
             }
         }
 
-        /**
-         * Remove coins from the Members Bank account
-         * If process succeeds it returns true, if not it returns false
-         * @param {Number} amount
-         */
-        async removeBank(amount) {
-            if (isNaN(amount)) throw new Error('argument amount must be of type Number');
-            let settings = this.settings();
-            if (amount <= settings.bankCoins) {
-                await MembersConfig.updateOne(
-                    {
-                        _id: settings._id
-                    },
-                    {
-                        bankCoins: (settings.bankCoins - amount).toPrecision(4)
-                    }
-                );
-                return true;
-            } else {
-                return false;
-            }
-        }
+    /**
+     * Remove coins from the Member
+     * If process succeeds it returns true if not it returns false
+     * @param {Number} amount 
+     */
+    async remove(amount) {
+      if(isNaN(amount)) throw new Error("argument amount must be of type Number");
+      let settings = await this.settings();
+      if(amount <= settings.coins) {
+        await MembersConfig.updateOne({
+          _id: settings._id
+        }, {
+          coins: (settings.coins-amount).toPrecision(4)
+        });
+        return true;
+      }else {
+        return false;
+      }
+    }
 
-        /**
-         * Adds coins to Member
-         * @param {Number} amount
-         */
-        async add(amount) {
-            console.log(amount);
-            if (isNaN(amount)) throw new Error('argument amount must be of type Number');
-            let settings = await this.settings();
-            await MembersConfig.updateOne(
-                {
-                    _id: settings._id
-                },
-                {
-                    coins: (settings.coins + amount).toPrecision(4)
-                }
-            );
-        }
+    /**
+     * Remove coins from the Members Bank account
+     * If process succeeds it returns true, if not it returns false
+     * @param {Number} amount 
+     */
+    async removeBank(amount) {
+      if(isNaN(amount)) throw new Error("argument amount must be of type Number");
+      let settings = await this.settings();
+      if(amount <= settings.bankCoins) {
+        await MembersConfig.updateOne({
+          _id: settings._id
+        }, {
+          bankCoins: (settings.bankCoins-amount).toPrecision(4)
+        });
+        return true;
+      }else {
+        return false;
+      }
+    }
 
-        /**
-         * Add coins to the Members Bank account
-         * @param {Number} amount
-         */
-        async addBank(amount) {
-            if (isNaN(amount)) throw new Error('argument amount must be of type Number');
-            let settings = this.settings();
-            await MembersConfig.updateOne(
-                {
-                    _id: settings._id
-                },
-                {
-                    bankCoins: (settings.bankCoins + amount).toPrecision(4)
-                }
-            );
-        }
+    /**
+     * Adds coins to Member
+     * @param {Number} amount 
+     */
+    async add(amount) {
+      if(isNaN(amount)) throw new Error("argument amount must be of type Number");
+      let settings = await this.settings();
+      await MembersConfig.updateOne({
+        _id: settings._id
+      }, {
+        coins: (settings.coins+amount).toPrecision(4)
+      });
+    }
 
         /**
          * Pay another member coins
