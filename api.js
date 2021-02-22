@@ -1,6 +1,8 @@
 // API written in express by charmines#1522
 const settings = require("./settings.json")
 const bodyParser = require("body-parser");
+const moment = require('moment')
+const erl = require('express-rate-limit')
 const express = require('express')
 let app = express()
 
@@ -17,12 +19,58 @@ app.listen(settings.APIPort, (err) => {
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(express.urlencoded()) // Decode URLs
 
-// Handle API Requests
+// Ratelimit
+app.use(erl({
+  windowMs: 5 * 1000, // 5 Seconds
+  max: 10 // 10 request per windowMs
+}))
+
+// Handle XP API Requests
 app.post('/xp', (req, res) => {
   let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
   const profile = await target.settings()
   res.json({
-    "user": target.nickname,
-    "xp": profile.XP
+    "username": target.nickname,
+    "data": profile.XP
+  })
+})
+
+// Handle Join Server Date API Requests
+app.post('/jsd', (req, res) => {
+  let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
+  const profile = await target.settings()
+  res.json({
+    "username": target.nickname,
+    "data": moment(target.joinedAt).format("LLLL")
+  })
+})
+
+// Handle Reputation API Requests
+app.post('/reputation', (req, res) => {
+  let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
+  const profile = await target.settings()
+  res.json({
+    "username": target.nickname,
+    "data": profile.reps
+  })
+})
+
+// Handle Level API Requests
+app.post('/level', (req, res) => {
+  let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
+  const profile = await target.settings()
+  res.json({
+    "username": target.nickname,
+    "data": profile.level
+  })
+})
+
+// Handle Coins API Requests
+app.post('/coins', (req, res) => {
+  let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
+  const profile = await target.settings()
+  res.json({
+    "username": target.nickname,
+    "data": profile.coins
   })
 })
