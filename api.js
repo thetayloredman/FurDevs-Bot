@@ -26,7 +26,7 @@ app.use(erl({
 }))
 
 // Handle XP API Requests
-app.post('/xp', (req, res) => {
+app.get('/xp', (req, res) => {
   let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
   const profile = await target.settings()
   res.json({
@@ -36,7 +36,7 @@ app.post('/xp', (req, res) => {
 })
 
 // Handle Join Server Date API Requests
-app.post('/jsd', (req, res) => {
+app.get('/jsd', (req, res) => {
   let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
   const profile = await target.settings()
   res.json({
@@ -46,7 +46,7 @@ app.post('/jsd', (req, res) => {
 })
 
 // Handle Reputation API Requests
-app.post('/reputation', (req, res) => {
+app.get('/reputation', (req, res) => {
   let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
   const profile = await target.settings()
   res.json({
@@ -56,7 +56,7 @@ app.post('/reputation', (req, res) => {
 })
 
 // Handle Level API Requests
-app.post('/level', (req, res) => {
+app.get('/level', (req, res) => {
   let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
   const profile = await target.settings()
   res.json({
@@ -66,7 +66,7 @@ app.post('/level', (req, res) => {
 })
 
 // Handle Coins API Requests
-app.post('/coins', (req, res) => {
+app.get('/coins', (req, res) => {
   let target = await client.guilds.cache.get('731520035717251142').members.cache.get(req.param('userid'))
   const profile = await target.settings()
   res.json({
