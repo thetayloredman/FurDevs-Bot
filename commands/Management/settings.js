@@ -54,7 +54,7 @@ exports.run = async (client, message, args) => {
                 }))
 			for (var key in settings) {
 				botjsonembed.addField(`${key}:`, `${settings[key]}`)
-			});
+			};
 			message.channel.send(botjsonembed)
 		} else {
             throw new Error(`To view guild settings do \`${settings.defaultPrefix}settings show guild\` `)
