@@ -52,9 +52,13 @@ exports.run = async (client, message, args) => {
                 .setThumbnail(client.user.displayAvatarURL({
                     dynamic: true
                 }))
-			for (var key in settings) {
-				botjsonembed.addField(`${key}:`, `${settings[key]}`)
-			});
+            var keys = [
+
+            ]
+			for (key in settings) {
+				keys.push({name: `${key}:`, value: `${settings[key]}`})
+			}
+            botjsonembed.addFields(keys)
 			message.channel.send(botjsonembed)
 		} else {
             throw new Error(`To view guild settings do \`${settings.defaultPrefix}settings show guild\` `)
