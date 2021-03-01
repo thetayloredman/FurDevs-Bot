@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js")
 
-function sendEmbed(){
-	const guild = client.guilds.cache.get("731520035717251142");
+async function sendEmbed(client, message, args){
+	const guild = client.guilds.cache.get(message.guild.id);
 	const setting = await guild.settings();
 	const bumpingChannel = setting.bumpingChannel;
 	const bumpEmbed = new MessageEmbed()
@@ -29,5 +29,14 @@ function sendEmbed(){
 }
 
 exports.run = async (client, message, args) => {
-	setTimeout(sendEmbed, 7200000, 'BumpEmbed');
+	setTimeout(() => {
+		sendEmbed(client, message, args)
+	}, ((2*60)*60)*1000, 'BumpEmbed');
 }
+
+exports.help = {
+    name: "dbump",
+    description: "Get all bot output logs",
+    usage: "getlogs",
+    aliases: ["getlogs"],
+};

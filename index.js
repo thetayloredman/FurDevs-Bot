@@ -32,6 +32,17 @@ mongoose
   });
 
 const init = async () => {
+  console.stdlog = console.log.bind(console);
+  console.logs = [];
+  console.log = function(){
+    console.logs.push(Array.from(arguments) + "\n");
+    if (console.logs.length > 10) {
+      for (i = 0; i != 3; i++) {
+        console.logs.shift()
+      }
+    }
+    console.stdlog.apply(console, arguments);
+  }
   console.log(String.raw` _____           ____                  `);
   console.log(String.raw`|  ___|   _ _ __|  _ \  _____   _____  `);
   console.log(String.raw`| |_ | | | | '__| | | |/ _ \ \ / / __| `);

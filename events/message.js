@@ -1,5 +1,6 @@
 const { MessageEmbed, ClientVoiceManager } = require("discord.js");
 const MembersConfig = require("./../database/models/MembersConfig");
+const dbump = require("../commands/Management/dbump.js")
 
 let timeoutBalance = new Set();
 
@@ -97,10 +98,10 @@ module.exports = async (client, message) => {
   
   // Disboard 2hr bump reminder
   if(message.content.toLowerCase().startsWith("!d")){
-		if(message.content.toLowerCase().contains("bump")){
-			client.commands.get("dbump")
+		if(message.content.toLowerCase().includes("bump")){
+			
 			try {
-			  await cmd.run(client, message, commandParts);
+			  await dbump.run(client, message, commandParts);
 			} catch (e) {
 			  try {
 				const errorMessage = new MessageEmbed()
