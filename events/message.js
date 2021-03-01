@@ -94,6 +94,37 @@ module.exports = async (client, message) => {
     timeoutBalance.add(message.author.id);
     setTimeout(() => timeoutBalance.delete(message.author.id), 60000);
   }
+  
+  // Disboard 2hr bump reminder
+  if(message.content.toLowerCase().startsWith("!d")){
+		if(message.content.toLowerCase().contains("bump")){
+			client.commands.get("dbump")
+			try {
+			  await cmd.run(client, message, commandParts);
+			} catch (e) {
+			  try {
+				const errorMessage = new MessageEmbed()
+				  .setTitle("❌ An Error has Occured!")
+				  .setThumbnail(
+					`https://cdn.discordapp.com/emojis/604486986170105866.png?v=1`
+				  )
+				  .setDescription(
+					`\`${command}\` failed to execute with this error \n\n${e.message}\n\u200b`
+				  )
+				  .setColor("#ee110f");
+				console.log(
+				  `${client.fdevsError}: ${command} was executed but failed with an error;\n${e}`
+				);
+				return message.channel.send(errorMessage);
+			  } catch {
+				console.log(
+				  `${client.fdevsError}: ${command} was executed but failed with an error;\n${e}`
+				);
+				return;
+			  }
+			}
+		}
+  }
 
   // If the user pings the bot the bot will respond with it's prefix
   const mentionRegex = RegExp(`^<@!${client.user.id}>$`);

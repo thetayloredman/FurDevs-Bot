@@ -39,7 +39,26 @@ exports.run = async (client, message, args) => {
                 }))
             message.channel.send(embed)
 
-        } else {
+        } else if(args[1] === "botjson") {
+			// botjson option made by charmines#1522 for looking at the bots settings.json
+            const botjsonembed = new MessageEmbed()
+                .setAuthor(
+                    `${message.author.tag}`,
+                    `${message.author.displayAvatarURL({ dynamic: true })}`
+                )
+                .setColor("#8800FF")
+                .setTitle("Bot Settings.json")
+                .setFooter(`User ID: ${message.author.id}`, `${message.author.displayAvatarURL({ dynamic: true })}`)
+                .setThumbnail(client.user.displayAvatarURL({
+                    dynamic: true
+                }))
+			require("../../settings.json").forEach(obj => {
+				Object.entries(obj).forEach(([key, value]) => {
+					botjsonembed.addField(`${key}:`, `${value}`)
+				});
+			});
+			message.channel.send(botjsonembed)
+		} else {
             throw new Error(`To view guild settings do \`${settings.defaultPrefix}settings show guild\` `)
         }
     } else {
@@ -50,6 +69,6 @@ exports.run = async (client, message, args) => {
 exports.help = {
     name: "settings",
     description: "View Database Information on the Bot or the Guild",
-    usage: "< show | change > <guild | logging> [ overrideChannel ] ( Only works if you are changeing logging >",
+    usage: "< show | change > <guild | logging | botjson> [ overrideChannel ] ( Only works if you are changeing logging >",
     aliases: ["settings", "config"],
 };
