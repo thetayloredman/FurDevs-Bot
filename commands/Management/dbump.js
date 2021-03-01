@@ -33,10 +33,3 @@ exports.run = async (client, message, args) => {
 		sendEmbed(client, message, args)
 	}, ((2*60)*60)*1000, 'BumpEmbed');
 }
-
-exports.help = {
-    name: "dbump",
-    description: "Get all bot output logs",
-    usage: "getlogs",
-    aliases: ["getlogs"],
-};
