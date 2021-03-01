@@ -52,10 +52,8 @@ exports.run = async (client, message, args) => {
                 .setThumbnail(client.user.displayAvatarURL({
                     dynamic: true
                 }))
-			JSON.parse(require("../../settings.json")).forEach(obj => {
-				Object.entries(obj).forEach(([key, value]) => {
-					botjsonembed.addField(`${key}:`, `${value}`)
-				});
+			for (var key in settings) {
+				botjsonembed.addField(`${key}:`, `${settings[key]}`)
 			});
 			message.channel.send(botjsonembed)
 		} else {

@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { checkBotOwner } = require("../../utils/permissions")
 const { execute } = require("../../utils/utils");
 
-exports.run = async (client, message) => {
+exports.run = async (client, message, args) => {
     await message.delete()
     await checkBotOwner(message)
     const embed = new MessageEmbed()
