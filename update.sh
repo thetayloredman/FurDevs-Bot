@@ -1,3 +1,3 @@
 git stash
-git pull origin master
+git pull origin $1
 npm install

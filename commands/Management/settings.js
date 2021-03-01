@@ -52,7 +52,7 @@ exports.run = async (client, message, args) => {
                 .setThumbnail(client.user.displayAvatarURL({
                     dynamic: true
                 }))
-			require("../../settings.json").forEach(obj => {
+			JSON.parse(require("../../settings.json")).forEach(obj => {
 				Object.entries(obj).forEach(([key, value]) => {
 					botjsonembed.addField(`${key}:`, `${value}`)
 				});
