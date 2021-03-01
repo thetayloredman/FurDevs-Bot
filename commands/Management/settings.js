@@ -52,10 +52,10 @@ exports.run = async (client, message, args) => {
                 .setThumbnail(client.user.displayAvatarURL({
                     dynamic: true
                 }))
-            var keys = []
 			for (key in settings) {
-				keys.push({name: `${key}:`, value: `${settings[key]}`})
-				if(settings[key]){
+                if (typeof settings[key] === 'object') {
+                    botjsonembed.addField(`${key}:`, `${JSON.stringify(settings[key])}`)
+                } else if(settings[key]){
 					botjsonembed.addField(`${key}:`, `${settings[key]}`)
 				}
 			}
