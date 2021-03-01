@@ -9,7 +9,8 @@ const {
     send
 } = require("../../utils/utils");
 const {
-    verificationLogs
+    verificationLogs,
+    welcomeChannel
 } = require('./../../settings.json')
 
 
@@ -41,16 +42,24 @@ exports.run = async (client, message, args) => {
             message.channel.send(
                 `${member} is now verified for \`${message.guild.name}\` Please Give them a warm welcome in the General Chat!${message.guild.id === "731520035717251142" ? "Here's a little copy and paste" : ""}`
             );
-            if(message.guild.id === "731520035717251142"){
-                // THIS IS TEMPORARY!
-                message.channel.send(`\`\`\`[ <@&789620311107567646> ]\n\nSalutations and welcome to **FurDevs**, ${member}!
-                
+            if (welcomeChannel != "") {
+
+                var wc = await message.guild.channels.cache.get(welcomeChannel)
+                wc.send(`[ <@&789620311107567646> ]
+
+Salutations and welcome to **FurDevs**, ${member}!
+                            
 **Here are a few things you need to know to get started:**
-                > • <#731523544596480091> - Please read our regulations at the very top so you can know know the important information about our server such as rules for asking programming-related questions as well as how to contact staff.
-                > • <#731523548207775744> - Go and react to any reaction role category and it fills up on your profile! With that, we get to know you better!
-                > • <#732931206378684548> - Need a guide or a tutorial to start off programming? No problem! Check out this channel and take a look if what you need is in there. If not, you're free to ask on our programming channels!
-                > • <#734515583726518302> - Feel free to introduce yourself for others to get you to know even better! It's your choice whether to introduce yourself or not (if you ever feel uncomfortable in giving out some of your real information).\n\n__Other than that, have fun and again, we welcome you in behalf of everyone! DM <@731573040273555526> if ever you require an assistance or have any queries, we're happy to help you anytime. uwu 👋__
-                \`\`\``)
+> • <#731523544596480091> - Please read our regulations at the very top so you can know know the important information about our server such as rules for asking programming-related questions as well as how to contact staff.
+> • <#731523548207775744> - Go and react to any reaction role category and it fills up on your profile! With that, we get to know you better!
+> • <#732931206378684548> - Need a guide or a tutorial to start off programming? No problem! Check out this channel and take a look if what you need is in there. If not, you're free to ask on our programming channels!
+> • <#734515583726518302> - Feel free to introduce yourself for others to get you to know even better! It's your choice whether to introduce yourself or not (if you ever feel uncomfortable in giving out some of your real information).
+            
+__Other than that, have fun and again, we welcome you in behalf of everyone! DM <@731573040273555526> if ever you require an assistance or have any queries, we're happy to help you anytime. uwu 👋__`)
+            } else {
+                throw new Error(
+                    "The Welcome Channel does not exist! Please add that to the settings."
+                )
             }
             if(args[1]){
                 client.channels.cache.get(verificationLogs).send(`Verified By - ${message.author}\n${args[1]}`)
