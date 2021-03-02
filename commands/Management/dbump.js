@@ -23,6 +23,7 @@ async function sendEmbed(client, message, args){
 	);
 	try{
 	  guild.channels.cache.get(bumpingChannel).send(bumpEmbed);
+	  client.theonlydbcharcanunderstand.set("info", "run", "bumpRemindAgain")
 	}catch{
 	  console.log("Failed to send Bump message")
 	}
