@@ -18,9 +18,9 @@ exports.run = async (client, message, args) => {
     var message = await message.channel.send(embed);
 
     // Execute the update script
-	if(args[0] = "dev"){
+	if (args[0] === "dev") {
 		branch = "Dev";
-	}else{
+	} else {
 		branch = "master";
 	}
     let result = await execute("sh update.sh " + args[0]);
