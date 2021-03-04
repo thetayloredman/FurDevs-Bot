@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { checkBotOwner } = require("../../utils/permissions")
 const { execute } = require("../../utils/utils");
 
-exports.run = async (client, message) => {
+exports.run = async (client, message, args) => {
     await message.delete()
     await checkBotOwner(message)
     const embed = new MessageEmbed()
@@ -18,7 +18,12 @@ exports.run = async (client, message) => {
     var message = await message.channel.send(embed);
 
     // Execute the update script
-    let result = await execute("sh update.sh");
+	if (args[0] === "dev") {
+		branch = "Dev";
+	} else {
+		branch = "master";
+	}
+    let result = await execute("sh update.sh " + args[0]);
 
     // Send the result
     if (result[0]) {
